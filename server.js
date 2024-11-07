@@ -2,13 +2,11 @@ const app = require("./app"); // Import the app
 const logger = require("./utils/logger");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
+dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
-dotenv.config();
-if (process.env.NODE_ENV !== "test") {
-    connectDB(); // Connect to MongoDB only if not running tests
-}
+connectDB();
 
 app.listen(PORT, () => {
     logger.info(`Server running on port ${PORT}`);
