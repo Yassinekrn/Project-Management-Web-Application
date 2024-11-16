@@ -1,0 +1,70 @@
+{"level":"error","message":"500 - Failed to lookup view \"auth/owner/signup\" in views directory \"./views\" - /auth/owner/signup - GET - ::1","service":"user-service","timestamp":"2024-11-14T12:29:54.419Z"}
+{"level":"error","message":"Not Found","service":"user-service","timestamp":"2024-11-14T12:29:54.560Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","service":"user-service","timestamp":"2024-11-14T12:29:54.561Z"}
+{"level":"error","message":"500 - Failed to lookup view \"auth/owner/signup\" in views directory \"C:\\Users\\noa\\Downloads\\DSI 3rd Term\\NodeJS\\Project\\Source code\\views\" - /auth/owner/signup - GET - ::1","service":"user-service","timestamp":"2024-11-14T12:30:57.096Z"}
+{"level":"error","message":"Not Found","service":"user-service","timestamp":"2024-11-14T12:33:23.447Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/auth/owner/signup - POST - ::1","service":"user-service","timestamp":"2024-11-14T12:33:23.448Z"}
+{"level":"error","message":"Not Found","service":"user-service","timestamp":"2024-11-14T12:34:42.473Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/auth/owner/signup - POST - ::1","service":"user-service","timestamp":"2024-11-14T12:34:42.474Z"}
+{"level":"error","message":"500 - Owner validation failed: passwordHash: Path `passwordHash` is required. - /auth/owner/signup - POST - ::1","service":"user-service","timestamp":"2024-11-14T12:41:25.934Z"}
+{"level":"error","message":"Not Found","service":"user-service","timestamp":"2024-11-14T12:49:44.303Z"}
+{"level":"error","message":"404 - Not Found - /owner/dashboard - GET - ::1","service":"user-service","timestamp":"2024-11-14T12:49:44.304Z"}
+{"level":"error","message":"Not Found","service":"user-service","timestamp":"2024-11-14T12:51:02.524Z"}
+{"level":"error","message":"404 - Not Found - /dashboard - GET - ::1","service":"user-service","timestamp":"2024-11-14T12:51:02.525Z"}
+{"level":"error","message":"Not Found","service":"user-service","timestamp":"2024-11-14T12:51:12.139Z"}
+{"level":"error","message":"404 - Not Found - /dashboard - GET - ::1","service":"user-service","timestamp":"2024-11-14T12:51:12.140Z"}
+{"level":"error","message":"500 - Failed to lookup view \"owner/dashboard\" in views directory \"./views\" - /owners/dashboard - GET - ::1","service":"user-service","timestamp":"2024-11-14T12:54:00.279Z"}
+{"level":"error","message":"Not Found","service":"user-service","timestamp":"2024-11-14T12:56:10.761Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/dashboard - GET - ::1","service":"user-service","timestamp":"2024-11-14T12:56:10.762Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\DSI 3rd Term\\NodeJS\\Project\\Source code\\views\\dashboard.ejs:8\n    6|     </head>\r\n    7|     <body>\r\n >> 8|         <h1>Welcome <%= user.name %></h1>\r\n    9|         <p>You are logged in as: <%= user.email %></p>\r\n    10| \r\n    11|         <div class=\"dashboard-actions\">\r\n\nuser is not defined - /auth/owner/login - POST - ::1","service":"user-service","timestamp":"2024-11-14T13:01:40.912Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\DSI 3rd Term\\NodeJS\\Project\\Source code\\views\\dashboard.ejs:8\n    6|     </head>\r\n    7|     <body>\r\n >> 8|         <h1>Welcome <%= owner.name %></h1>\r\n    9|         <p>You are logged in as: <%= owner.email %></p>\r\n    10| \r\n    11|         <div class=\"dashboard-actions\">\r\n\nowner is not defined - /auth/owner/login - POST - ::1","service":"user-service","timestamp":"2024-11-14T13:03:39.960Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\DSI 3rd Term\\NodeJS\\Project\\Source code\\views\\dashboard.ejs:8\n    6|     </head>\r\n    7|     <body>\r\n >> 8|         <h1>Welcome <%= owner.name %></h1>\r\n    9|         <p>You are logged in as: <%= owner.email %></p>\r\n    10| \r\n    11|         <div class=\"dashboard-actions\">\r\n\nowner is not defined - /auth/owner/login - POST - ::1","service":"user-service","timestamp":"2024-11-14T13:05:16.543Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-14T13:11:58.226Z"}
+{"level":"error","message":"404 - Not Found - /auth/login - GET - ::1","timestamp":"2024-11-14T13:11:58.227Z"}
+{"level":"error","message":"500 - Failed to lookup view \"/auth/owner/login\" in views directory \"./views\" - /auth/owner/login - GET - ::1","timestamp":"2024-11-14T13:12:05.898Z"}
+{"level":"error","message":"500 - Failed to lookup view \"/auth/owner/login\" in views directory \"./views\" - /auth/owner/login - GET - ::1","timestamp":"2024-11-14T13:13:36.381Z"}
+{"level":"error","message":"500 - Failed to lookup view \"/auth/owner/login\" in views directory \"./views\" - /auth/owner/login - GET - ::1","timestamp":"2024-11-14T13:13:37.436Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-14T13:13:58.093Z"}
+{"level":"error","message":"404 - Not Found - /auth/login - GET - ::1","timestamp":"2024-11-14T13:13:58.093Z"}
+{"level":"error","message":"500 - Failed to lookup view \"/auth/owner/login\" in views directory \"./views\" - /auth/owner/login - GET - ::1","timestamp":"2024-11-14T13:14:21.893Z"}
+{"level":"error","message":"500 - Failed to lookup view \"/auth/owner/login\" in views directory \"./views\" - /auth/owner/login - GET - ::1","timestamp":"2024-11-14T13:15:29.223Z"}
+{"level":"error","message":"500 - Failed to lookup view \"/auth/owner/login\" in views directory \"./views\" - /auth/owner/login - GET - ::1","timestamp":"2024-11-14T13:16:03.110Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\DSI 3rd Term\\NodeJS\\Project\\Source code\\views\\dashboard.ejs:8\n    6|     </head>\r\n    7|     <body>\r\n >> 8|         <h1>Welcome <%= owner.name %></h1>\r\n    9|         <p>You are logged in as: <%= owner.email %></p>\r\n    10| \r\n    11|         <div class=\"dashboard-actions\">\r\n\nowner is not defined - /auth/owner/login - POST - ::1","timestamp":"2024-11-14T13:19:05.495Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\DSI 3rd Term\\NodeJS\\Project\\Source code\\views\\dashboard.ejs:8\n    6|     </head>\r\n    7|     <body>\r\n >> 8|         <h1>Welcome <%= owner.name %></h1>\r\n    9|         <p>You are logged in as: <%= owner.email %></p>\r\n    10| \r\n    11|         <div class=\"dashboard-actions\">\r\n\nowner is not defined - /auth/owner/login - POST - ::1","timestamp":"2024-11-14T13:22:01.203Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\DSI 3rd Term\\NodeJS\\Project\\Source code\\views\\dashboard.ejs:8\n    6|     </head>\r\n    7|     <body>\r\n >> 8|         <h1>Welcome <%= owner.name %></h1>\r\n    9|         <p>You are logged in as: <%= owner.email %></p>\r\n    10| \r\n    11|         <div class=\"dashboard-actions\">\r\n\nowner is not defined - /auth/owner/login - POST - ::1","timestamp":"2024-11-14T13:25:35.576Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-14T13:26:01.127Z"}
+{"level":"error","message":"404 - Not Found - /owner/dashboard - GET - ::1","timestamp":"2024-11-14T13:26:01.128Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-14T14:24:21.044Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/singup - GET - ::1","timestamp":"2024-11-14T14:24:21.046Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-14T14:25:14.954Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/singup - GET - ::1","timestamp":"2024-11-14T14:25:14.954Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-14T14:25:25.116Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/singup - GET - ::1","timestamp":"2024-11-14T14:25:25.117Z"}
+{"level":"error","message":"500 - Failed to lookup view \"/auth/owner/signup\" in views directory \"./views\" - /auth/owner/signup - GET - ::1","timestamp":"2024-11-14T14:25:47.254Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-14T14:26:00.828Z"}
+{"level":"error","message":"404 - Not Found - /auth/owners/signup - GET - ::1","timestamp":"2024-11-14T14:26:00.830Z"}
+{"level":"error","message":"500 - Not authorized, no token - /owners/dashboard - GET - ::1","timestamp":"2024-11-14T14:26:53.136Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-14T14:28:27.806Z"}
+{"level":"error","message":"404 - Not Found - /css/styles.css - GET - ::1","timestamp":"2024-11-14T14:28:27.807Z"}
+{"level":"error","message":"500 - User already exists - /auth/owner/signup - POST - ::1","timestamp":"2024-11-14T14:30:57.779Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T16:17:53.899Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-11-16T16:17:53.900Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T16:19:51.930Z"}
+{"level":"error","message":"404 - Not Found - /css/style.css - GET - ::1","timestamp":"2024-11-16T16:19:51.931Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T16:20:01.310Z"}
+{"level":"error","message":"404 - Not Found - /auth/member/signup - GET - ::1","timestamp":"2024-11-16T16:20:01.312Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T16:20:42.336Z"}
+{"level":"error","message":"404 - Not Found - /css/style.css - GET - ::1","timestamp":"2024-11-16T16:20:42.337Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T16:21:00.410Z"}
+{"level":"error","message":"404 - Not Found - /css/style.css - GET - ::1","timestamp":"2024-11-16T16:21:00.410Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T16:21:00.613Z"}
+{"level":"error","message":"404 - Not Found - /css/style.css - GET - ::1","timestamp":"2024-11-16T16:21:00.613Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T16:21:04.601Z"}
+{"level":"error","message":"404 - Not Found - /css/style.css - GET - ::1","timestamp":"2024-11-16T16:21:04.601Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T16:53:33.644Z"}
+{"level":"error","message":"404 - Not Found - /dashboard - GET - ::1","timestamp":"2024-11-16T16:53:33.646Z"}
+{"level":"error","message":"500 - Not authorized, no token - /owners/dashboard - GET - ::1","timestamp":"2024-11-16T16:53:59.811Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs:57\n    55|                     Your Projects\r\n    56|                 </h3>\r\n >> 57|                 <% if (owner.projects.length === 0) { %>\r\n    58|                 <p class=\"text-gray-600\">No projects created yet.</p>\r\n    59|                 <% } else { %>\r\n    60|                 <ul class=\"space-y-4\">\r\n\nCannot read properties of undefined (reading 'length') - /owners/dashboard - GET - ::1","timestamp":"2024-11-16T16:54:16.284Z"}
+{"level":"error","message":"500 - Unexpected token '/' in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /owners/dashboard - GET - ::1","timestamp":"2024-11-16T17:12:43.485Z"}
+{"level":"error","message":"500 - Unexpected token '/' in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /owners/dashboard - GET - ::1","timestamp":"2024-11-16T17:14:09.999Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs'), {title: 'Owner Dashboard'} %>\r\n    5|     </head>\r\n    6|     <body class=\"bg-gray-100 min-h-screen\">\r\n    7|         <!-- Navbar -->\r\n\nC:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\partials\\_head.ejs:9\n    7|         href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css\"\r\n    8|     />\r\n >> 9|     <title><%= title || \"Project Management App\" %></title>\r\n    10| </head>\r\n    11| \n\ntitle is not defined - /owners/dashboard - GET - ::1","timestamp":"2024-11-16T17:21:13.907Z"}

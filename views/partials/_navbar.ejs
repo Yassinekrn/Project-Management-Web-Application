@@ -1,0 +1,23 @@
+<!-- views/partials/_navbar.ejs -->
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-lg font-semibold text-gray-700">Dashboard</h1>
+        <div class="flex items-center space-x-4">
+            <p class="text-gray-600">Welcome, <%= name %></p>
+            <a
+                href="/auth/owner/profile"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md"
+            >
+                Profile
+            </a>
+            <form action="/auth/owner/logout" method="POST">
+                <button
+                    type="submit"
+                    class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                >
+                    Logout
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>

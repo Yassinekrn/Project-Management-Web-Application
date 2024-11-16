@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 app.listen(PORT, () => {
-    logger.info(`Server running on port ${PORT}`);
+    logger.info(`Server running on: http://localhost:${PORT}`);
 });
 
 // Global error handlers for uncaught exceptions and unhandled promise rejections

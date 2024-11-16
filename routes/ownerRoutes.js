@@ -1,8 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const ownerController = require("../controllers/ownerController");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 // Owner Routes (only owners can access these routes)
+router.get(
+    "/dashboard",
+    authMiddleware.protect,
+    authMiddleware.authorize("owner"),
+    ownerController.getDashboard
+); // Get Owner Dashboard
 router.get("/me", ownerController.getOwnerInfo); // Get Owner Info
 router.patch("/me", ownerController.updateOwnerInfo); // Update Owner Info
 router.delete("/me", ownerController.deleteOwner); // Delete Owner Account

@@ -5,7 +5,7 @@ const limiter = require("./middlewares/limiter");
 
 const compression = require("compression");
 const bodyParser = require("body-parser");
-
+const cookieParser = require("cookie-parser");
 const { notFoundHandler, errorHandler } = require("./middlewares/errorHandler");
 
 const authRoutes = require("./routes/authRoutes");
@@ -27,6 +27,7 @@ app.use(limiter);
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use(morgan("dev"));
 app.use(helmet());
@@ -38,7 +39,7 @@ app.use("/owners", ownerRoutes);
 app.use("/tasks", taskRoutes);
 app.use("/projects", projectRoutes);
 
-// test route (check the tailwind css is working)
+// Home route
 app.get("/", (req, res) => {
     res.render("index");
 });

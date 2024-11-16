@@ -7,7 +7,7 @@ const logger = createLogger({
         format.errors({ stack: true }), // Include stack trace if available
         format.json() // Log in JSON format for better readability
     ),
-    defaultMeta: { service: "user-service" }, // Add default metadata (e.g., service name)
+    // defaultMeta: { service: "user-service" }, // Add default metadata (e.g., service name)
     transports: [
         new transports.Console({
             format: format.combine(
@@ -19,14 +19,5 @@ const logger = createLogger({
         new transports.File({ filename: "logs/combined.log" }), // Log all levels to this file
     ],
 });
-
-// // If not in production, also log to the console with more verbose settings
-// if (process.env.NODE_ENV !== "production") {
-//     logger.add(
-//         new transports.Console({
-//             format: format.combine(format.colorize(), format.simple()),
-//         })
-//     );
-// }
 
 module.exports = logger;
