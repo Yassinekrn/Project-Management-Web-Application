@@ -35,7 +35,7 @@ exports.postSignupOwner = asyncHandler(async (req, res) => {
     await owner.setPassword(password);
     await owner.save();
 
-    res.render("auth/owner/login", {
+    res.render("login", {
         message: "Signup successful! Please login.",
     });
 });
@@ -70,6 +70,7 @@ exports.postLoginOwner = asyncHandler(async (req, res) => {
             email: owner.email,
             name: owner.name,
             role: owner.role,
+            createdAt: owner.createdAt,
         },
         process.env.JWT_SECRET,
         { expiresIn: "24h" }

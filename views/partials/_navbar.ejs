@@ -1,11 +1,13 @@
 <!-- views/partials/_navbar.ejs -->
 <nav class="bg-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 class="text-lg font-semibold text-gray-700">Dashboard</h1>
+        <h1 class="text-lg font-semibold text-gray-700">
+            <a href="/owners/dashboard">Dashboard</a>
+        </h1>
         <div class="flex items-center space-x-4">
             <p class="text-gray-600">Welcome, <%= name %></p>
             <a
-                href="/auth/owner/profile"
+                href="/owners/me"
                 class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md"
             >
                 Profile

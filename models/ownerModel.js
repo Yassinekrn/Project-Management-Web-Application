@@ -27,6 +27,10 @@ const ownerSchema = new mongoose.Schema({
             ref: "Project",
         },
     ],
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
 });
 
 // Method to hash password

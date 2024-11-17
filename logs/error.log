@@ -68,3 +68,36 @@
 {"level":"error","message":"500 - Unexpected token '/' in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /owners/dashboard - GET - ::1","timestamp":"2024-11-16T17:12:43.485Z"}
 {"level":"error","message":"500 - Unexpected token '/' in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /owners/dashboard - GET - ::1","timestamp":"2024-11-16T17:14:09.999Z"}
 {"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs'), {title: 'Owner Dashboard'} %>\r\n    5|     </head>\r\n    6|     <body class=\"bg-gray-100 min-h-screen\">\r\n    7|         <!-- Navbar -->\r\n\nC:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\partials\\_head.ejs:9\n    7|         href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css\"\r\n    8|     />\r\n >> 9|     <title><%= title || \"Project Management App\" %></title>\r\n    10| </head>\r\n    11| \n\ntitle is not defined - /owners/dashboard - GET - ::1","timestamp":"2024-11-16T17:21:13.907Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-16T22:52:40.576Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-11-16T22:52:40.581Z"}
+{"level":"error","message":"500 - Failed to lookup view \"project_create\" in views directory \"./views\" - /projects/ - GET - ::1","timestamp":"2024-11-16T22:53:40.792Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T12:07:44.715Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-11-17T12:07:44.715Z"}
+{"level":"error","message":"500 - Project validation failed: owner: Path `owner` is required. - /projects/ - POST - ::1","timestamp":"2024-11-17T12:08:09.872Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'push') - /projects/ - POST - ::1","timestamp":"2024-11-17T12:09:24.487Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'push') - /projects/ - POST - ::1","timestamp":"2024-11-17T12:10:31.088Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'push') - /projects/ - POST - ::1","timestamp":"2024-11-17T12:11:47.789Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T12:13:00.203Z"}
+{"level":"error","message":"404 - Not Found - /projects/owners/dashboard - GET - ::1","timestamp":"2024-11-17T12:13:00.204Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'id') - /owners/me - GET - ::1","timestamp":"2024-11-17T12:28:38.430Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'id') - /owners/me - GET - ::1","timestamp":"2024-11-17T12:29:45.863Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\owner_details.ejs:57\n    55|                 <p class=\"text-gray-700\">\r\n    56|                     <strong class=\"font-medium\">Account Created At:</strong>\r\n >> 57|                     <%= owner.createdAt.toDateString() %>\r\n    58|                 </p>\r\n    59|             </div>\r\n    60| \r\n\nCannot read properties of undefined (reading 'toDateString') - /owners/me - GET - ::1","timestamp":"2024-11-17T12:30:46.026Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\owner_details.ejs:57\n    55|                 <p class=\"text-gray-700\">\r\n    56|                     <strong class=\"font-medium\">Account Created At:</strong>\r\n >> 57|                     <%= owner.createdAt.toDateString() %>\r\n    58|                 </p>\r\n    59|             </div>\r\n    60| \r\n\nCannot read properties of undefined (reading 'toDateString') - /owners/me - GET - ::1","timestamp":"2024-11-17T12:33:09.649Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\owner_details.ejs:57\n    55|                 <p class=\"text-gray-700\">\r\n    56|                     <strong class=\"font-medium\">Account Created At:</strong>\r\n >> 57|                     <%= owner.createdAt.toDateString() %>\r\n    58|                 </p>\r\n    59|             </div>\r\n    60| \r\n\nCannot read properties of undefined (reading 'toDateString') - /owners/me - GET - ::1","timestamp":"2024-11-17T12:33:56.028Z"}
+{"level":"error","message":"500 - Failed to lookup view \"auth/owner/login\" in views directory \"./views\" - /auth/owner/signup - POST - ::1","timestamp":"2024-11-17T12:35:46.637Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T12:36:45.961Z"}
+{"level":"error","message":"404 - Not Found - /signup - GET - ::1","timestamp":"2024-11-17T12:36:45.962Z"}
+{"level":"error","message":"500 - Not authorized, no token - /owners/me - GET - ::1","timestamp":"2024-11-17T12:51:41.060Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T12:59:01.953Z"}
+{"level":"error","message":"404 - Not Found - /public/static/js/modal.js - GET - ::1","timestamp":"2024-11-17T12:59:01.954Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T13:01:22.714Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/update - GET - ::1","timestamp":"2024-11-17T13:01:22.715Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T13:02:21.500Z"}
+{"level":"error","message":"404 - Not Found - /static/js/delete_account_modal.js - GET - ::1","timestamp":"2024-11-17T13:02:21.502Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T13:12:20.319Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/update - GET - ::1","timestamp":"2024-11-17T13:12:20.320Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T13:13:01.606Z"}
+{"level":"error","message":"404 - Not Found - /auth/owner/update - GET - ::1","timestamp":"2024-11-17T13:13:01.607Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-17T13:27:33.518Z"}
+{"level":"error","message":"404 - Not Found - /owners/ - POST - ::1","timestamp":"2024-11-17T13:27:33.519Z"}
+{"level":"error","message":"500 - jwt is not defined - /owners/me/update - POST - ::1","timestamp":"2024-11-17T14:50:26.414Z"}

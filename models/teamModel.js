@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const projectSchema = new mongoose.Schema({
+const teamSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -10,23 +10,17 @@ const projectSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
-    owner: {
+    members: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        },
+    ],
+    projects: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Owner",
-        required: true,
+        ref: "Project",
     },
-    teams: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Team",
-        },
-    ],
-    tasks: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Task",
-        },
-    ],
+
     createdAt: {
         type: Date,
         default: Date.now,
@@ -36,4 +30,8 @@ const projectSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("Project", projectSchema);
+teamSchema.virtual("url").get(function () {
+    return "/team/" + this._id;
+});
+
+module.exports = mongoose.model("Team", teamSchema);
