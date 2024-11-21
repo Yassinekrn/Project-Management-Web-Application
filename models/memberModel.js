@@ -29,6 +29,10 @@ const memberSchema = new mongoose.Schema({
             ref: "Task",
         },
     ],
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
 });
 
 // Method to hash password

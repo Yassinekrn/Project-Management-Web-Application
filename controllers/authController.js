@@ -1,9 +1,10 @@
 const asyncHandler = require("express-async-handler");
 const Owner = require("../models/ownerModel");
+const Member = require("../models/memberModel");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-exports.getSignupOwner = asyncHandler(async (req, res) => {
+exports.owner_signup_get = asyncHandler(async (req, res) => {
     if (req.isAuthenticated) {
         res.redirect("/owners/dashboard");
     } else {
@@ -11,7 +12,7 @@ exports.getSignupOwner = asyncHandler(async (req, res) => {
     }
 });
 
-exports.postSignupOwner = asyncHandler(async (req, res) => {
+exports.owner_signup_post = asyncHandler(async (req, res) => {
     const { name, email, password, confirmPassword } = req.body;
 
     // Check if passwords match
@@ -40,7 +41,7 @@ exports.postSignupOwner = asyncHandler(async (req, res) => {
     });
 });
 
-exports.getLoginOwner = asyncHandler(async (req, res) => {
+exports.owner_login_get = asyncHandler(async (req, res) => {
     if (req.isAuthenticated) {
         res.redirect("/owners/dashboard");
     } else {
@@ -48,7 +49,7 @@ exports.getLoginOwner = asyncHandler(async (req, res) => {
     }
 });
 
-exports.postLoginOwner = asyncHandler(async (req, res) => {
+exports.owner_login_post = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
     // Find user by email
@@ -86,19 +87,81 @@ exports.postLoginOwner = asyncHandler(async (req, res) => {
     res.redirect("/owners/dashboard");
 });
 
-exports.postLogoutOwner = asyncHandler(async (req, res) => {
+exports.owner_logout_post = asyncHandler(async (req, res) => {
     res.clearCookie("access_token");
     res.redirect("/auth/owner/login");
 });
 
-exports.signupMember = asyncHandler(async (req, res) => {
-    res.json({ message: "signup member" });
+exports.member_signup_post = asyncHandler(async (req, res) => {
+    const { name, email, password, confirmPassword } = req.body;
+
+    try {
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            return res.status(400).json({ error: "Passwords do not match" });
+        }
+
+        // Check if user already exists
+        const existingUser = await Member.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ error: "User already exists" });
+        }
+
+        let member = new Member({
+            name,
+            email,
+            role: "member",
+        });
+
+        // Create new user
+        await member.setPassword(password);
+        await member.save();
+
+        res.status(201).json({ message: "Signup successful! Please login." });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
-exports.loginMember = asyncHandler(async (req, res) => {
-    res.json({ message: "login member" });
+exports.member_login_post = asyncHandler(async (req, res) => {
+    const { email, password } = req.body;
+
+    // Find user by email
+    const member = await Member.findOne({ email, role: "member" });
+    if (!member) {
+        return res.status(400).json({ error: "Invalid email or password" });
+    }
+
+    // Verify password
+    const isValidPassword = await member.validatePassword(password);
+    if (!isValidPassword) {
+        return res.status(400).json({ error: "Invalid email or password" });
+    }
+
+    // Create JWT token
+    const token = jwt.sign(
+        {
+            id: member._id,
+            email: member.email,
+            name: member.name,
+            role: member.role,
+            createdAt: member.createdAt,
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: "24h" }
+    );
+
+    // Set cookie with token
+    res.cookie("access_token", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    });
+
+    res.status(200).json({ message: "Login successful", token });
 });
 
-exports.logoutMember = asyncHandler(async (req, res) => {
-    res.json({ message: "logout member" });
+exports.member_logout_post = asyncHandler(async (req, res) => {
+    res.clearCookie("access_token");
+    res.status(200).json({ message: "Logout successful" });
 });
