@@ -13,6 +13,7 @@ const memberRoutes = require("./routes/memberRoutes");
 const ownerRoutes = require("./routes/ownerRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const projectRoutes = require("./routes/projectRoutes");
+const teamRoutes = require("./routes/teamRoutes");
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use("/members", memberRoutes);
 app.use("/owners", ownerRoutes);
 app.use("/tasks", taskRoutes);
 app.use("/projects", projectRoutes);
+app.use("/teams", teamRoutes);
 
 // Home route
 app.get("/", (req, res) => {

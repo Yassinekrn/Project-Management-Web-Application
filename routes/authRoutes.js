@@ -16,7 +16,7 @@ router.get("/owner/signup", isAuthenticated, owner_signup_get);
 
 router.post("/owner/signup", owner_signup_post);
 
-router.get("/owner/login", isAuthenticated, owner_login_get); // Login
+router.get("/owner/login", isAuthenticated, owner_login_get);
 router.post("/owner/login", owner_login_post);
 router.post("/owner/logout", owner_logout_post);
 

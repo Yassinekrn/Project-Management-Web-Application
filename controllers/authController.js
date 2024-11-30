@@ -127,7 +127,7 @@ exports.member_login_post = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
     // Find user by email
-    const member = await Member.findOne({ email, role: "member" });
+    const member = await Member.findOne({ email });
     if (!member) {
         return res.status(400).json({ error: "Invalid email or password" });
     }

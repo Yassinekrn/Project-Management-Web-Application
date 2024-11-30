@@ -17,12 +17,31 @@ exports.project_create_post = asyncHandler(async (req, res) => {
     }
     owner.projects.push(project._id);
     await owner.save();
-    res.redirect("owners/dashboard");
+    res.redirect("/owners/dashboard");
 });
 
 // View Project by ID
 exports.viewProjectById = asyncHandler(async (req, res) => {
-    res.json({ message: "viewProjectById" });
+    // get project by id and populate owner, teams and tasks
+    req.project = await Project.findById(req.params.projectId)
+        .populate({ path: "owner", select: "name email" })
+        .populate({
+            path: "tasks",
+            select: "title status assignedTo",
+            populate: { path: "assignedTo", select: "name" },
+        })
+        .populate({
+            path: "teams",
+            populate: { path: "members", select: "name" },
+        });
+    res.render("project_details", { project: req.project, owner: req.owner });
+});
+
+exports.addTeamToProject = asyncHandler(async (req, res) => {
+    res.render("add_team_to_project", {
+        projectId: req.params.projectId,
+        owner: req.owner,
+    });
 });
 
 // Update Project by ID

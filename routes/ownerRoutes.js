@@ -31,7 +31,5 @@ router.post(
     ownerController.owner_update_post
 ); // Update Owner Info
 router.delete("/me", ownerController.deleteOwner); // Delete Owner Account
-router.get("/me/projects", ownerController.getAllOwnerProjects); // Get All Owner's Projects
-router.post("/me/projects", ownerController.createProject); // Create Project
 
 module.exports = router;

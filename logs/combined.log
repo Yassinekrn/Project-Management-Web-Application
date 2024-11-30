@@ -229,3 +229,231 @@
 {"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-17T14:50:02.692Z"}
 {"level":"error","message":"500 - jwt is not defined - /owners/me/update - POST - ::1","timestamp":"2024-11-17T14:50:26.414Z"}
 {"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-17T14:50:37.749Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T08:34:52.484Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T11:14:21.760Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-21T11:14:24.196Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-11-21T11:14:24.197Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T11:18:16.395Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs:38\n    36|                 <% } else { %>\r\n    37|                 <ul class=\"space-y-4\">\r\n >> 38|                     <% owner.projects.forEach((project) => { %>\r\n    39|                     <li\r\n    40|                         class=\"bg-white shadow-md p-4 rounded-md border flex justify-between items-center\"\r\n    41|                     >\r\n\nowner.projects.forEach is not a function - /owners/dashboard - GET - ::1","timestamp":"2024-11-21T11:18:20.859Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T11:19:14.242Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\dashboard.ejs:38\n    36|                 <% } else { %>\r\n    37|                 <ul class=\"space-y-4\">\r\n >> 38|                     <% owner.projects.forEach((project) => { %>\r\n    39|                     <li\r\n    40|                         class=\"bg-white shadow-md p-4 rounded-md border flex justify-between items-center\"\r\n    41|                     >\r\n\nowner.projects.forEach is not a function - /owners/dashboard - GET - ::1","timestamp":"2024-11-21T11:19:20.914Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T11:19:39.848Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-21T11:21:18.960Z"}
+{"level":"error","message":"404 - Not Found - /projects/owners/dashboard - GET - ::1","timestamp":"2024-11-21T11:21:18.961Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T11:21:54.104Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T11:40:13.827Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T18:22:07.700Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T18:23:09.134Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T18:32:03.799Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T18:34:02.298Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T18:41:43.976Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-21T18:41:48.270Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-11-21T18:41:48.271Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T19:29:15.464Z"}
+{"level":"error","message":"500 - Invalid or unexpected token in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T19:34:21.625Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T19:37:28.871Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:9\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n    8|         <!-- Navbar -->\r\n >> 9|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    10|         <!-- Content Wrapper -->\r\n    11|         <div class=\"max-w-7xl mx-auto px-4 py-8 space-y-8\">\r\n    12|             <!-- Project Overview -->\r\n\nowner is not defined - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T19:37:33.049Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T19:38:16.695Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:9\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n    8|         <!-- Navbar -->\r\n >> 9|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    10|         <!-- Content Wrapper -->\r\n    11|         <div class=\"max-w-7xl mx-auto px-4 py-8 space-y-8\">\r\n    12|             <!-- Project Overview -->\r\n\nowner is not defined - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T19:38:20.131Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:9\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n    8|         <!-- Navbar -->\r\n >> 9|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    10|         <!-- Content Wrapper -->\r\n    11|         <div class=\"max-w-7xl mx-auto px-4 py-8 space-y-8\">\r\n    12|             <!-- Project Overview -->\r\n\nowner is not defined - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T19:38:31.981Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T20:02:02.870Z"}
+{"level":"error","message":"500 - Invalid or unexpected token in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:04:59.511Z"}
+{"level":"error","message":"500 - Invalid or unexpected token in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:07:46.978Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-21T21:09:36.361Z"}
+{"level":"error","message":"404 - Not Found - /teams/create/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:09:36.362Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:23:51.637Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:23:54.661Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:24:26.620Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:24:48.436Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-21T21:24:56.633Z"}
+{"level":"error","message":"404 - Not Found - /teams/create/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:24:56.634Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:26:55.212Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\team_form.ejs:5\n    3|     <%- include('./partials/_head.ejs', {title: 'Create a Team'}); %>\r\n    4|     <body class=\"bg-gray-100 min-h-screen\">\r\n >> 5|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    6| \r\n    7|         <!-- Content Wrapper -->\r\n    8|         <div class=\"max-w-4xl mx-auto px-4 py-8\">\r\n\nowner is not defined - /teams/create/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:26:59.226Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:27:31.531Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\team_form.ejs:5\n    3|     <%- include('./partials/_head.ejs', {title: 'Create a Team'}); %>\r\n    4|     <body class=\"bg-gray-100 min-h-screen\">\r\n >> 5|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    6| \r\n    7|         <!-- Content Wrapper -->\r\n    8|         <div class=\"max-w-4xl mx-auto px-4 py-8\">\r\n\nCannot read properties of undefined (reading 'name') - /teams/create/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:27:32.906Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:27:43.706Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\team_form.ejs:5\n    3|     <%- include('./partials/_head.ejs', {title: 'Create a Team'}); %>\r\n    4|     <body class=\"bg-gray-100 min-h-screen\">\r\n >> 5|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    6| \r\n    7|         <!-- Content Wrapper -->\r\n    8|         <div class=\"max-w-4xl mx-auto px-4 py-8\">\r\n\nCannot read properties of undefined (reading 'name') - /teams/create/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:27:45.139Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:28:02.411Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:28:06.960Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\team_form.ejs:14\n    12|                 </h1>\r\n    13|                 <form\r\n >> 14|                     action=\"/teams/create/<%= projectId %>\"\r\n    15|                     method=\"POST\"\r\n    16|                     class=\"space-y-6\"\r\n    17|                 >\r\n\nprojectId is not defined - /teams/create/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:28:08.457Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:28:42.312Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-21T21:39:00.810Z"}
+{"level":"error","message":"404 - Not Found - /tasks/create/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:39:00.812Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:39:45.149Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:39:47.384Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:40:10.485Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:40:35.772Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:40:49.045Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\task_form.ejs:14\n    12|                 </h1>\r\n    13|                 <form\r\n >> 14|                     action=\"/tasks/create/<%= projectId %>\"\r\n    15|                     method=\"POST\"\r\n    16|                     class=\"space-y-6\"\r\n    17|                 >\r\n\nprojectId is not defined - /tasks/create/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-21T21:40:51.400Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-21T21:41:06.920Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:40:09.614Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-22T16:40:18.673Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-11-22T16:40:18.674Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:48:31.518Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:50:05.561Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:50:30.572Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:50:54.243Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:52:15.550Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:53:40.140Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:56:02.943Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:59:16.893Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T16:59:19.003Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:02:30.281Z"}
+{"level":"error","message":"500 - Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema) - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-22T17:03:17.103Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:07:07.915Z"}
+{"level":"error","message":"500 - Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema) - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-22T17:07:41.690Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:09:58.347Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:10:54.702Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:11:09.664Z"}
+{"level":"error","message":"500 - Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema) - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-22T17:11:32.287Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:12:19.219Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:12:37.862Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:14:58.140Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:143\n    141|                             </p>\r\n    142|                             <p class=\"text-gray-700 text-sm mb-1\">\r\n >> 143|                                 <strong>Members:</strong> <%=\r\n    144|                                 team.members.name.join(', ') %>\r\n    145|                             </p>\r\n    146|                             <p class=\"text-xs text-gray-500\">\r\n\nCannot read properties of undefined (reading 'join') - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-22T17:17:17.734Z"}
+{"level":"error","message":"500 - Invalid or unexpected token in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-22T17:18:39.436Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:24:41.367Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:30:20.609Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:30:45.277Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:33:27.762Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:35:34.598Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:35:57.029Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:36:44.177Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:38:46.599Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:40:44.988Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:41:31.153Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T17:42:02.897Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T18:04:05.251Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T18:04:07.141Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-22T18:05:56.421Z"}
+{"level":"error","message":"404 - Not Found - /tasks/update/6740c2a6b6ea35eac81a75b0 - GET - ::1","timestamp":"2024-11-22T18:05:56.423Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T18:20:39.366Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-22T18:39:07.799Z"}
+{"level":"error","message":"404 - Not Found - /tasks/update/6740c2a6b6ea35eac81a75b0 - GET - ::1","timestamp":"2024-11-22T18:39:07.800Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T19:54:24.508Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T19:54:29.602Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T20:43:43.925Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T20:44:06.271Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T20:44:52.816Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T20:52:15.341Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:16:07.932Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:25:35.369Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:25:42.898Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:28:42.063Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:28:57.162Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:29:07.982Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:29:15.405Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:31:05.139Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:32:57.399Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:36:41.708Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:39:15.067Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:39:44.173Z"}
+{"level":"error","message":"500 - Not authorized, no token - /teams/delete/1 - DELETE - ::1","timestamp":"2024-11-22T21:40:28.727Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:43:34.578Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:43:36.000Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:45:51.035Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T21:46:01.117Z"}
+{"level":"error","message":"500 - Not authorized, no token - /teams/delete/6740f908536db9fc492ccd03 - POST - ::1","timestamp":"2024-11-22T21:47:29.073Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:360\n    358|                         Cancel\r\n    359|                     </button>\r\n >> 360|                     <form action=\"/teams/delete/<%= teamId %>\" method=\"post\">\r\n    361|                         <button\r\n    362|                             id=\"confirmTeamDelete\"\r\n    363|                             class=\"bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700\"\r\n\nteamId is not defined - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-22T22:00:25.781Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:361\n    359|                     </button>\r\n    360|                     <form\r\n >> 361|                         action=\"/teams/delete/<%= data-team-id %>\"\r\n    362|                         method=\"post\"\r\n    363|                     >\r\n    364|                         <button\r\n\ndata is not defined - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-22T22:01:05.263Z"}
+{"level":"error","message":"500 - Not authorized, no token - /teams/delete/6740f908536db9fc492ccd07 - POST - ::1","timestamp":"2024-11-22T22:05:15.563Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T22:05:32.460Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-22T22:06:26.336Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:15:59.814Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:16:20.107Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-11-26T18:16:20.107Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:18:04.094Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:21:05.670Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:22:28.131Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:23:12.440Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:23:53.031Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:291\n    289|                             </p>\r\n    290|                             <p class=\"text-gray-700 text-sm mb-1\">\r\n >> 291|                                 <strong>Assigned To:</strong> <%=\r\n    292|                                 task.assignedTo.name %>\r\n    293|                             </p>\r\n    294|                             <p class=\"text-xs text-gray-500\">\r\n\nCannot read properties of null (reading 'name') - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-26T18:23:59.521Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:291\n    289|                             </p>\r\n    290|                             <p class=\"text-gray-700 text-sm mb-1\">\r\n >> 291|                                 <strong>Assigned To:</strong> <%=\r\n    292|                                 task.assignedTo.name != null ?\r\n    293|                                 task.assignedTo.name: \"unassigned\" %>\r\n    294|                             </p>\r\n\nCannot read properties of null (reading 'name') - /projects/673f17aee3a626c413dfcb0d - GET - ::1","timestamp":"2024-11-26T18:26:21.218Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:28:59.866Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:29:14.695Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:30:15.893Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:31:11.161Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:32:41.388Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:32:45.284Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:34:03.727Z"}
+{"level":"error","message":"404 - Not Found - /tasks/update/6740c2a6b6ea35eac81a75b0 - GET - ::1","timestamp":"2024-11-26T18:34:03.728Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:35:48.053Z"}
+{"level":"error","message":"404 - Not Found - /teams/update/6740bc192854c6058287b79f - GET - ::1","timestamp":"2024-11-26T18:35:48.054Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:35:52.136Z"}
+{"level":"error","message":"404 - Not Found - /teams/update/6740bc192854c6058287b79f - GET - ::1","timestamp":"2024-11-26T18:35:52.137Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:36:04.118Z"}
+{"level":"error","message":"404 - Not Found - /teams/update/6740bc192854c6058287b79f - GET - ::1","timestamp":"2024-11-26T18:36:04.119Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:36:07.280Z"}
+{"level":"error","message":"404 - Not Found - /teams/update/6740bc192854c6058287b79f - GET - ::1","timestamp":"2024-11-26T18:36:07.281Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:37:17.922Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:39:01.809Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:39:09.593Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:43:23.718Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:43:40.099Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:43:44.529Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:43:58.979Z"}
+{"level":"error","message":"404 - Not Found - /teams/update/6740bc192854c6058287b79f - GET - ::1","timestamp":"2024-11-26T18:43:58.980Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:45:24.548Z"}
+{"level":"error","message":"404 - Not Found - /teams/update/6740bc192854c6058287b79f - GET - ::1","timestamp":"2024-11-26T18:45:24.549Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:45:28.173Z"}
+{"level":"error","message":"404 - Not Found - /teams/update/6740bd582854c6058287b7ba - GET - ::1","timestamp":"2024-11-26T18:45:28.174Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:46:12.785Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T18:46:17.194Z"}
+{"level":"error","message":"404 - Not Found - /teams/update/6740bd582854c6058287b7ba - GET - ::1","timestamp":"2024-11-26T18:46:17.195Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:46:52.427Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:47:13.084Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:52:12.726Z"}
+{"level":"error","message":"500 - Invalid or unexpected token in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\team_update.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /teams/update/6740bd582854c6058287b7ba - GET - ::1","timestamp":"2024-11-26T18:52:15.491Z"}
+{"level":"error","message":"500 - Invalid or unexpected token in C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\team_update.ejs while compiling ejs\n\nIf the above error is not helpful, you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option. - /teams/update/6740bd582854c6058287b7ba - GET - ::1","timestamp":"2024-11-26T18:52:26.080Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\team_update.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs', { title: project.name +\r\n    5|         '-UpdateTeam' }); %>\r\n    6|         <style>\r\n    7|             /* Tailwind customization for primary black */\r\n\nproject is not defined - /teams/update/6740bd582854c6058287b7ba - GET - ::1","timestamp":"2024-11-26T18:53:21.677Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T18:57:22.928Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T19:25:13.310Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T19:26:40.306Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T19:29:01.309Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T19:29:11.551Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T19:50:39.431Z"}
+{"level":"error","message":"500 - Task validation failed: status: `Pending` is not a valid enum value for path `status`. - /tasks/create/673f17aee3a626c413dfcb0d - POST - ::1","timestamp":"2024-11-26T19:52:28.283Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T19:57:09.667Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T19:58:38.966Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-26T21:21:42.769Z"}
+{"level":"error","message":"404 - Not Found - /tasks/update/6746273eee270281220579d8 - GET - ::1","timestamp":"2024-11-26T21:21:42.772Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T21:32:15.676Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T21:45:45.079Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-26T22:05:22.364Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T18:40:46.831Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-27T18:40:53.002Z"}
+{"level":"error","message":"404 - Not Found - /auth/member/login - GET - ::1","timestamp":"2024-11-27T18:40:53.003Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-27T18:41:46.603Z"}
+{"level":"error","message":"404 - Not Found - /auth/member/signup - GET - ::1","timestamp":"2024-11-27T18:41:46.604Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T18:43:35.301Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T20:28:42.687Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T20:29:02.102Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T20:29:13.257Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T20:30:37.301Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T20:31:10.332Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T20:34:39.297Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T20:34:54.164Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:13:25.664Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:13:47.163Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:14:48.436Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:15:30.876Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:15:45.611Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:16:34.490Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:16:40.908Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:16:47.640Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:16:55.688Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:17:11.762Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-11-27T21:36:36.161Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-11-27T21:36:36.161Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:41:10.586Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:44:55.905Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:45:03.132Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:45:51.248Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:47:02.476Z"}
+{"level":"error","message":"500 - Role undefined is not authorized to access this route - /tasks/6747912db85e56c2a3a6d6a5/status - PUT - ::1","timestamp":"2024-11-27T21:48:16.578Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:49:13.830Z"}
+{"level":"error","message":"500 - Role undefined is not authorized to access this route - /tasks/6747912db85e56c2a3a6d6a5/status - PUT - ::1","timestamp":"2024-11-27T21:49:59.333Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:50:03.775Z"}
+{"level":"error","message":"500 - Role undefined is not authorized to access this route - /tasks/6747912db85e56c2a3a6d6a5/status - PUT - ::1","timestamp":"2024-11-27T21:50:07.514Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:51:22.486Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:52:40.482Z"}
+{"level":"info","message":"Server running on: http://localhost:3000","timestamp":"2024-11-27T21:52:59.651Z"}

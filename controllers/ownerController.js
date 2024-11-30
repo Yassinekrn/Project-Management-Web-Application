@@ -2,17 +2,24 @@ const Owner = require("../models/ownerModel");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const Project = require("../models/projectModel");
+const Team = require("../models/teamModel");
+const Task = require("../models/taskModel");
 require("dotenv").config();
 
 // Testing auth with dashboard
 exports.owner_dashboard_get = asyncHandler(async (req, res) => {
+    // get all owners projects
+    let projects = await Owner.findById(req.owner.id)
+        .select("projects")
+        .populate("projects");
+    req.owner.projects = projects.projects;
     res.render("dashboard", { owner: req.owner });
 });
 
 // Get Owner Info
 exports.owner_details_get = asyncHandler(async (req, res) => {
     const owner = await Owner.findById(req.owner.id);
-    console.log(owner);
     if (!owner) {
         res.status(404).json({ message: "Owner not found" });
     } else {
@@ -32,7 +39,6 @@ exports.owner_update_get = asyncHandler(async (req, res) => {
 // Update Owner Info
 exports.owner_update_post = asyncHandler(async (req, res) => {
     const { name, password, email } = req.body;
-    console.log(req.body);
 
     // Create an update object
     const updateData = {};
@@ -87,7 +93,14 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
 
 // Delete Owner Account
 exports.deleteOwner = asyncHandler(async (req, res) => {
-    res.json({ message: "deleteOwner" });
+    const owner = await Owner.findById(req.owner.id);
+    if (!owner) {
+        res.status(404).json({ message: "Owner not found" });
+    } else {
+        await owner.remove();
+        res.clearCookie("access_token");
+        res.json({ message: "Owner account deleted" });
+    }
 });
 
 // Get All Owner's Projects

@@ -17,7 +17,9 @@ router.post(
     projectController.project_create_post
 );
 
-router.get("/:projectId", projectController.viewProjectById); // View Project by ID
+router.get("/:projectId/add-team", protect, projectController.addTeamToProject); // Add Team to Project
+
+router.get("/:projectId", protect, projectController.viewProjectById);
 router.patch("/:projectId", projectController.updateProjectById); // Update Project by ID (Owner only)
 router.delete("/:projectId", projectController.deleteProjectById); // Delete Project by ID (Owner only)
 router.post("/:projectId/members", projectController.addMemberToProject); // Add Member to Project

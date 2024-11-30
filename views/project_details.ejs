@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/_head.ejs', {title: project.name + ' Details'});
+        %>
+    </head>
+    <body class="bg-gray-100 min-h-screen">
+        <!-- Navbar -->
+        <%- include('./partials/_navbar.ejs', {name: owner.name}); %>
+        <!-- Content Wrapper -->
+        <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+            <!-- Project Overview -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h1
+                    class="text-2xl font-bold text-gray-800 mb-4 flex items-center space-x-2"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-package-check"
+                    >
+                        <path d="m16 16 2 2 4-4" />
+                        <path
+                            d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"
+                        />
+                        <path d="m7.5 4.27 9 5.15" />
+                        <polyline points="3.29 7 12 12 20.71 7" />
+                        <line x1="12" x2="12" y1="22" y2="12" />
+                    </svg>
+                    <span><%= project.name %></span>
+                </h1>
+                <p class="text-gray-700 mb-4"><%= project.description %></p>
+                <div class="space-y-2">
+                    <p class="text-gray-600">
+                        <strong>Owner:</strong> <%= project.owner.name %> (<%=
+                        project.owner.email %>)
+                    </p>
+                    <p>
+                        <span
+                            class="bg-blue-100 text-blue-700 text-xs font-semibold py-1 px-2 rounded-md"
+                        >
+                            Created: <%= new
+                            Date(project.createdAt).toLocaleDateString('en-US',
+                            { year: 'numeric', month: 'short', day: 'numeric',
+                            }) %>
+                        </span>
+                    </p>
+                    <p>
+                        <span
+                            class="bg-gray-100 text-gray-700 text-xs font-semibold py-1 px-2 rounded-md"
+                        >
+                            Updated: <%= new
+                            Date(project.updatedAt).toLocaleDateString('en-US',
+                            { year: 'numeric', month: 'short', day: 'numeric',
+                            }) %>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Teams Section -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <div
+                        class="flex flex-row justify-between items-center gap-1"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-users"
+                        >
+                            <path
+                                d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                            />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        <h2 class="text-xl font-semibold text-gray-800">
+                            Teams
+                        </h2>
+                    </div>
+
+                    <a
+                        href="/teams/create/<%= project.id %>"
+                        class="flex items-center bg-black text-white px-4 py-2 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 mr-2"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H5a1 1 0 110-2h3V6a1 1 0 011-1z"
+                            />
+                        </svg>
+                        Add Team
+                    </a>
+                </div>
+                <% if (project.teams && project.teams.length > 0) { %>
+                <ul class="space-y-4">
+                    <% project.teams.forEach(team => { %>
+                    <li
+                        class="border rounded-md p-4 flex items-start justify-between"
+                    >
+                        <!-- Left Section: Team Info -->
+                        <div class="flex items-start space-x-4">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-handshake mt-2"
+                            >
+                                <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+                                <path
+                                    d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"
+                                />
+                                <path d="m21 3 1 11h-2" />
+                                <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+                                <path d="M3 4h8" />
+                            </svg>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-800">
+                                    <%= team.name %>
+                                </h3>
+                                <p class="text-gray-600 mb-2">
+                                    <%= team.description %>
+                                </p>
+                                <p class="text-gray-700 text-sm mb-1">
+                                    <strong>Members:</strong> <%=
+                                    team.members.map( member =>
+                                    member.name).join(', ')%>
+                                </p>
+                                <p class="text-xs text-gray-500">
+                                    Created: <%= new
+                                    Date(team.createdAt).toLocaleDateString() %>
+                                    | Updated: <%= new
+                                    Date(team.updatedAt).toLocaleDateString() %>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right Section: Buttons -->
+                        <div class="flex space-x-2">
+                            <!-- Edit Button -->
+                            <a
+                                class="bg-blue-500 text-white px-3 py-1 rounded-md text-sm hover:bg-blue-600"
+                                href="/teams/update/<%= team._id %>"
+                            >
+                                Edit
+                            </a>
+
+                            <!-- Delete Button -->
+                            <form
+                                action="/teams/delete/<%= team._id %>"
+                                method="post"
+                            >
+                                <button
+                                    class="deleteTeamBtn bg-red-500 text-white px-3 py-1 rounded-md text-sm hover:bg-red-600"
+                                    data-team-id="<%= team._id %>"
+                                >
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+
+                <% } else { %>
+                <p class="text-gray-600 mb-4">No teams added yet.</p>
+                <a
+                    href="/teams/create/<%= project.id %>"
+                    class="text-blue-600 hover:underline text-sm"
+                >
+                    Add your first team now.
+                </a>
+                <% } %>
+            </div>
+
+            <!-- Tasks Section -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <div
+                        class="flex flex-row justify-between items-center gap-1"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-clipboard-list"
+                        >
+                            <rect
+                                width="8"
+                                height="4"
+                                x="8"
+                                y="2"
+                                rx="1"
+                                ry="1"
+                            />
+                            <path
+                                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                            />
+                            <path d="M12 11h4" />
+                            <path d="M12 16h4" />
+                            <path d="M8 11h.01" />
+                            <path d="M8 16h.01" />
+                        </svg>
+                        <h2 class="text-xl font-semibold text-gray-800">
+                            Tasks
+                        </h2>
+                    </div>
+                    <a
+                        href="/tasks/create/<%= project.id %>"
+                        class="flex items-center bg-black text-white px-4 py-2 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 mr-2"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H5a1 1 0 110-2h3V6a1 1 0 011-1z"
+                            />
+                        </svg>
+                        Add Task
+                    </a>
+                </div>
+                <% if (project.tasks && project.tasks.length > 0) { %>
+                <ul class="space-y-4">
+                    <% project.tasks.forEach(task => { %>
+                    <li
+                        class="border rounded-md p-4 flex justify-between items-start space-x-4"
+                    >
+                        <!-- Task Icon -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pen-line mt-2"
+                        >
+                            <path d="M12 20h9" />
+                            <path
+                                d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"
+                            />
+                        </svg>
+
+                        <!-- Task Details -->
+                        <div class="flex-1">
+                            <h3 class="text-lg font-medium text-gray-800">
+                                <%= task.title %>
+                            </h3>
+                            <p class="text-gray-600 mb-2">
+                                <%= task.description %>
+                            </p>
+                            <p class="text-gray-700 text-sm mb-1">
+                                <strong>Assigned To:</strong> <%=
+                                task.assignedTo != null ? task.assignedTo.name:
+                                "no One" %>
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                Created: <%= new
+                                Date(task.createdAt).toLocaleDateString() %> |
+                                Updated: <%= new
+                                Date(task.updatedAt).toLocaleDateString() %>
+                            </p>
+                            <p class="mt-2">
+                                <span
+                                    class="bg-blue-100 text-blue-700 text-xs font-semibold py-1 px-2 rounded-md"
+                                >
+                                    Status: <%= task.status %>
+                                </span>
+                            </p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex items-center space-x-2">
+                            <!-- Edit Button -->
+                            <a
+                                href="/tasks/update/<%= task.id %>"
+                                class="bg-blue-500 text-white px-3 py-1 rounded-md text-sm hover:bg-blue-600 focus:outline-none"
+                            >
+                                Edit
+                            </a>
+
+                            <!-- Delete Button -->
+                            <form
+                                action="/tasks/delete/<%= task.id %>"
+                                method="post"
+                            >
+                                <button
+                                    type="submit"
+                                    class="deleteTaskBtn bg-red-500 text-white px-3 py-1 text-sm rounded-md hover:bg-red-600 focus:outline-none"
+                                >
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+
+                <% } else { %>
+                <p class="text-gray-600 mb-4">No tasks created yet.</p>
+                <a
+                    href="/tasks/create/<%= project.id %>"
+                    class="text-blue-600 hover:underline text-sm"
+                >
+                    Add your first task now.
+                </a>
+                <% } %>
+            </div>
+        </div>
+    </body>
+</html>
