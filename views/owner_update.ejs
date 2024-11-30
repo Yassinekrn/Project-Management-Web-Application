@@ -15,6 +15,15 @@
                 Changing your email or password will affect your login process.
                 Proceed with caution.
             </div>
+            <!-- Error message if error exists -->
+            <% if (typeof error !== 'undefined' && error) { %>
+            <div
+                class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-md"
+            >
+                <strong class="font-semibold">Error:</strong>
+                <span><%= error %></span>
+            </div>
+            <% } %>
 
             <form action="/owners/me/update" method="POST">
                 <div class="mb-4">

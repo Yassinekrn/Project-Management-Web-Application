@@ -6,9 +6,9 @@ const {
     owner_signup_get,
     owner_signup_post,
     owner_logout_post,
-    member_signup_post,
-    member_login_post,
-    member_logout_post,
+    worker_signup_post,
+    worker_login_post,
+    worker_logout_post,
 } = require("../controllers/authController");
 const { isAuthenticated } = require("../middlewares/authMiddleware");
 
@@ -20,8 +20,8 @@ router.get("/owner/login", isAuthenticated, owner_login_get);
 router.post("/owner/login", owner_login_post);
 router.post("/owner/logout", owner_logout_post);
 
-router.post("/member/signup", member_signup_post);
-router.post("/member/login", member_login_post);
-router.post("/member/logout", member_logout_post);
+router.post("/worker/signup", worker_signup_post);
+router.post("/worker/login", worker_login_post);
+router.post("/worker/logout", worker_logout_post);
 
 module.exports = router;

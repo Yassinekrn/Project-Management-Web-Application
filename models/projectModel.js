@@ -12,15 +12,9 @@ const projectSchema = new mongoose.Schema({
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Owner",
+        ref: "User", // Directly reference Owner model
         required: true,
     },
-    teams: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Team",
-        },
-    ],
     tasks: [
         {
             type: mongoose.Schema.Types.ObjectId,

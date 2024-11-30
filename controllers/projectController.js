@@ -1,75 +1,66 @@
 const Project = require("../models/projectModel");
 const Owner = require("../models/ownerModel");
+const Worker = require("../models/workerModel");
 const asyncHandler = require("express-async-handler");
 
+// DONE: updated
 exports.project_create_get = asyncHandler(async (req, res) => {
-    res.render("project_form", { title: "Create Project", owner: req.owner });
+    res.render("project_form", { title: "Create Project", owner: req.user });
 });
 
+// DONE: updated
 exports.project_create_post = asyncHandler(async (req, res) => {
     let { name, description } = req.body;
-    let project = new Project({ name, description, owner: req.owner.id });
+    let project = new Project({ name, description, owner: req.user.id });
     await project.save();
-    let owner = await Owner.findById(req.owner.id);
+    let owner = await Owner.findById(req.user.id);
     if (!owner) {
-        res.status(404);
-        throw new Error("Owner not found");
+        res.render("project_form", {
+            error: "Owner not found. Please make sure you are logged in with the correct account.",
+        });
     }
     owner.projects.push(project._id);
     await owner.save();
     res.redirect("/owners/dashboard");
 });
 
-// View Project by ID
-exports.viewProjectById = asyncHandler(async (req, res) => {
+// DONE: updated
+exports.project_details_get = asyncHandler(async (req, res) => {
     // get project by id and populate owner, teams and tasks
-    req.project = await Project.findById(req.params.projectId)
+    let project = await Project.findById(req.params.projectId)
         .populate({ path: "owner", select: "name email" })
         .populate({
             path: "tasks",
             select: "title status assignedTo",
             populate: { path: "assignedTo", select: "name" },
-        })
-        .populate({
-            path: "teams",
-            populate: { path: "members", select: "name" },
         });
-    res.render("project_details", { project: req.project, owner: req.owner });
+
+    let workers = await Worker.find({ projects: req.params.projectId }).select(
+        "name email"
+    );
+
+    res.render("project_details", { project, owner: req.user, workers });
 });
 
-exports.addTeamToProject = asyncHandler(async (req, res) => {
-    res.render("add_team_to_project", {
-        projectId: req.params.projectId,
-        owner: req.owner,
-    });
-});
-
+//TODO: implement all the functions below
 // Update Project by ID
-exports.updateProjectById = asyncHandler(async (req, res) => {
-    res.json({ message: "updateProjectById" });
+exports.project_update_get = asyncHandler(async (req, res) => {
+    res.json({ message: "updateProjectById GET" });
+});
+
+exports.project_update_post = asyncHandler(async (req, res) => {
+    res.json({ message: "updateProjectById POST" });
 });
 
 // Delete Project by ID
-exports.deleteProjectById = asyncHandler(async (req, res) => {
+exports.project_delete_post = asyncHandler(async (req, res) => {
     res.json({ message: "deleteProjectById" });
 });
 
-// Add Member to Project
-exports.addMemberToProject = asyncHandler(async (req, res) => {
-    res.json({ message: "addMemberToProject" });
+exports.remove_worker_post = asyncHandler(async (req, res) => {
+    res.json({ message: "removeWorker" });
 });
 
-// Remove Member from Project
-exports.removeMemberFromProject = asyncHandler(async (req, res) => {
-    res.json({ message: "removeMemberFromProject" });
-});
-
-// Get All Project Members
-exports.getAllProjectMembers = asyncHandler(async (req, res) => {
-    res.json({ message: "getAllProjectMembers" });
-});
-
-// Get All Project Tasks
-exports.getAllProjectTasks = asyncHandler(async (req, res) => {
-    res.json({ message: "getAllProjectTasks" });
+exports.add_worker_post = asyncHandler(async (req, res) => {
+    res.json({ message: "addWorker" });
 });

@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const { notFoundHandler, errorHandler } = require("./middlewares/errorHandler");
 
 const authRoutes = require("./routes/authRoutes");
-const memberRoutes = require("./routes/memberRoutes");
+const workerRoutes = require("./routes/workerRoutes");
 const ownerRoutes = require("./routes/ownerRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const projectRoutes = require("./routes/projectRoutes");
@@ -35,7 +35,7 @@ app.use(helmet());
 
 // Routes
 app.use("/auth", authRoutes);
-app.use("/members", memberRoutes);
+app.use("/workers", workerRoutes);
 app.use("/owners", ownerRoutes);
 app.use("/tasks", taskRoutes);
 app.use("/projects", projectRoutes);

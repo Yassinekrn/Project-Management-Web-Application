@@ -1,7 +1,7 @@
 const Task = require("../models/taskModel");
 const asyncHandler = require("express-async-handler");
 const Project = require("../models/projectModel");
-const Member = require("../models/memberModel");
+const Worker = require("../models/workerModel");
 
 exports.task_update_get = asyncHandler(async (req, res) => {
     const task = await Task.findById(req.params.taskId).populate("assignedTo");

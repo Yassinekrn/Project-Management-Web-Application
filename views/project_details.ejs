@@ -11,6 +11,7 @@
         <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
             <!-- Project Overview -->
             <div class="bg-white shadow-md rounded-lg p-6">
+                <!-- Project Icon + Name -->
                 <h1
                     class="text-2xl font-bold text-gray-800 mb-4 flex items-center space-x-2"
                 >
@@ -53,6 +54,7 @@
                         </span>
                     </p>
                     <p>
+                        <% if (project.updatedAt) { %>
                         <span
                             class="bg-gray-100 text-gray-700 text-xs font-semibold py-1 px-2 rounded-md"
                         >
@@ -61,11 +63,12 @@
                             { year: 'numeric', month: 'short', day: 'numeric',
                             }) %>
                         </span>
+                        <% } %>
                     </p>
                 </div>
             </div>
 
-            <!-- Teams Section -->
+            <!-- Project Workers Section -->
             <div class="bg-white shadow-md rounded-lg p-6">
                 <div class="flex justify-between items-center mb-4">
                     <div
@@ -81,22 +84,26 @@
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="lucide lucide-users"
+                            class="lucide lucide-briefcase"
                         >
-                            <path
-                                d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                            <rect
+                                x="2"
+                                y="7"
+                                width="20"
+                                height="14"
+                                rx="2"
+                                ry="2"
                             />
-                            <circle cx="9" cy="7" r="4" />
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            <path
+                                d="M16 7V5a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2"
+                            />
                         </svg>
                         <h2 class="text-xl font-semibold text-gray-800">
-                            Teams
+                            Project Workers
                         </h2>
                     </div>
-
                     <a
-                        href="/teams/create/<%= project.id %>"
+                        href="/workers/add/<%= project.id %>"
                         class="flex items-center bg-black text-white px-4 py-2 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
                     >
                         <svg
@@ -109,16 +116,16 @@
                                 d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H5a1 1 0 110-2h3V6a1 1 0 011-1z"
                             />
                         </svg>
-                        Add Team
+                        Add Worker
                     </a>
                 </div>
-                <% if (project.teams && project.teams.length > 0) { %>
+                <% if (project.workers && project.workers.length > 0) { %>
                 <ul class="space-y-4">
-                    <% project.teams.forEach(team => { %>
+                    <% project.workers.forEach(worker => { %>
                     <li
                         class="border rounded-md p-4 flex items-start justify-between"
                     >
-                        <!-- Left Section: Team Info -->
+                        <!-- Left Section: Worker Info -->
                         <div class="flex items-start space-x-4">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -130,71 +137,48 @@
                                 stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="lucide lucide-handshake mt-2"
+                                class="lucide lucide-user mt-2"
                             >
-                                <path d="m11 17 2 2a1 1 0 1 0 3-3" />
                                 <path
-                                    d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"
+                                    d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
                                 />
-                                <path d="m21 3 1 11h-2" />
-                                <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
-                                <path d="M3 4h8" />
+                                <circle cx="12" cy="7" r="4" />
                             </svg>
                             <div>
                                 <h3 class="text-lg font-medium text-gray-800">
-                                    <%= team.name %>
+                                    <%= worker.name %>
                                 </h3>
                                 <p class="text-gray-600 mb-2">
-                                    <%= team.description %>
-                                </p>
-                                <p class="text-gray-700 text-sm mb-1">
-                                    <strong>Members:</strong> <%=
-                                    team.members.map( member =>
-                                    member.name).join(', ')%>
-                                </p>
-                                <p class="text-xs text-gray-500">
-                                    Created: <%= new
-                                    Date(team.createdAt).toLocaleDateString() %>
-                                    | Updated: <%= new
-                                    Date(team.updatedAt).toLocaleDateString() %>
+                                    <%= worker.email %>
                                 </p>
                             </div>
                         </div>
 
                         <!-- Right Section: Buttons -->
                         <div class="flex space-x-2">
-                            <!-- Edit Button -->
-                            <a
-                                class="bg-blue-500 text-white px-3 py-1 rounded-md text-sm hover:bg-blue-600"
-                                href="/teams/update/<%= team._id %>"
-                            >
-                                Edit
-                            </a>
-
                             <!-- Delete Button -->
                             <form
-                                action="/teams/delete/<%= team._id %>"
+                                action="/workers/remove/<%= worker._id %>/<%= project.id %>"
                                 method="post"
                             >
                                 <button
-                                    class="deleteTeamBtn bg-red-500 text-white px-3 py-1 rounded-md text-sm hover:bg-red-600"
-                                    data-team-id="<%= team._id %>"
+                                    class="deleteWorkerBtn bg-red-500 text-white px-3 py-1 rounded-md text-sm hover:bg-red-600"
+                                    data-worker-id="<%= worker._id %>"
                                 >
-                                    Delete
+                                    Remove Worker
                                 </button>
                             </form>
                         </div>
                     </li>
                     <% }) %>
                 </ul>
-
                 <% } else { %>
-                <p class="text-gray-600 mb-4">No teams added yet.</p>
+                <p class="text-gray-600 mb-4">No workers added yet.</p>
                 <a
-                    href="/teams/create/<%= project.id %>"
+                    href="/workers/create/<%= project.id %>"
                     class="text-blue-600 hover:underline text-sm"
                 >
-                    Add your first team now.
+                    Add your first worker now.
                 </a>
                 <% } %>
             </div>

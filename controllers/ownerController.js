@@ -2,41 +2,43 @@ const Owner = require("../models/ownerModel");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Project = require("../models/projectModel");
-const Team = require("../models/teamModel");
-const Task = require("../models/taskModel");
 require("dotenv").config();
 
-// Testing auth with dashboard
+// DONE: updated
 exports.owner_dashboard_get = asyncHandler(async (req, res) => {
     // get all owners projects
-    let projects = await Owner.findById(req.owner.id)
+    let owner = await Owner.findById(req.user.id)
         .select("projects")
         .populate("projects");
-    req.owner.projects = projects.projects;
-    res.render("dashboard", { owner: req.owner });
+    req.user.projects = owner.projects;
+    res.render("dashboard", { owner: req.user });
 });
 
-// Get Owner Info
+// DONE: updated
 exports.owner_details_get = asyncHandler(async (req, res) => {
-    const owner = await Owner.findById(req.owner.id);
+    const owner = await Owner.findById(req.user.id);
     if (!owner) {
-        res.status(404).json({ message: "Owner not found" });
+        res.status(404).render("owner_details", {
+            error: "Owner not found. Please make sure you are logged in with the correct account.",
+        });
     } else {
-        res.render("owner_details", { owner });
+        res.render("owner_details", { owner: req.user });
     }
 });
 
+// DONE: updated
 exports.owner_update_get = asyncHandler(async (req, res) => {
-    const owner = await Owner.findById(req.owner.id);
+    const owner = await Owner.findById(req.user.id);
     if (!owner) {
-        res.status(404).json({ message: "Owner not found" });
+        res.render("owner_update", {
+            error: "Owner not found. Please make sure you are logged in with the correct account.",
+        });
     } else {
-        res.render("owner_update", { owner });
+        res.render("owner_update", { owner: req.user });
     }
 });
 
-// Update Owner Info
+// DONE: updated
 exports.owner_update_post = asyncHandler(async (req, res) => {
     const { name, password, email } = req.body;
 
@@ -48,7 +50,10 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
 
     // Check if there is any data to update
     if (Object.keys(updateData).length === 0) {
-        return res.status(400).json({ message: "No valid fields to update" });
+        return res.render("owner_update", {
+            owner: req.user,
+            error: "No data to update",
+        });
     }
     if (updateData.password) {
         const salt = await bcrypt.genSalt(10);
@@ -57,7 +62,7 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
     }
 
     const updatedOwner = await Owner.findByIdAndUpdate(
-        req.owner.id,
+        req.user.id,
         updateData,
         {
             new: true,
@@ -66,7 +71,10 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
     );
 
     if (!updatedOwner) {
-        res.status(404).json({ message: "Owner not found" });
+        res.render("owner_update", {
+            owner: req.user,
+            error: "Owner not found. Please make sure you are logged in with the correct account.",
+        });
     } else {
         // Recreate the access token with updated owner data
         const token = jwt.sign(
@@ -74,7 +82,7 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
                 id: updatedOwner._id,
                 email: updatedOwner.email,
                 name: updatedOwner.name,
-                role: updatedOwner.role,
+                role: "owner",
                 createdAt: updatedOwner.createdAt,
             },
             process.env.JWT_SECRET,
@@ -91,24 +99,17 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
     }
 });
 
-// Delete Owner Account
-exports.deleteOwner = asyncHandler(async (req, res) => {
-    const owner = await Owner.findById(req.owner.id);
+// DONE: updated
+exports.owner_delete_post = asyncHandler(async (req, res) => {
+    const owner = await Owner.findById(req.user.id);
     if (!owner) {
-        res.status(404).json({ message: "Owner not found" });
+        res.render("owner_details", {
+            owner: req.user,
+            error: "Owner not found. Please make sure you are logged in with the correct account.",
+        });
     } else {
         await owner.remove();
         res.clearCookie("access_token");
-        res.json({ message: "Owner account deleted" });
+        res.redirect("/auth/owner/login");
     }
-});
-
-// Get All Owner's Projects
-exports.getAllOwnerProjects = asyncHandler(async (req, res) => {
-    res.json({ message: "getAllOwnerProjects" });
-});
-
-// Create Project
-exports.createProject = asyncHandler(async (req, res) => {
-    res.json({ message: "createProject" });
 });

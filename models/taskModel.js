@@ -17,7 +17,7 @@ const taskSchema = new mongoose.Schema({
     },
     assignedTo: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Member",
+        ref: "User", // Directly reference Worker model
     },
     status: {
         type: String,
@@ -30,9 +30,13 @@ const taskSchema = new mongoose.Schema({
         max: 100,
         default: 0,
     },
+    estimatedHours: {
+        type: Number,
+        min: 0,
+    },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Owner",
+        ref: "User", // Directly reference Owner model
         required: true,
     },
     createdAt: {

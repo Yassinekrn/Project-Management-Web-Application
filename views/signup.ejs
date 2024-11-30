@@ -3,6 +3,16 @@
     <%- include('./partials/_head.ejs', {title: 'Owner Signup'}); %>
     <body class="bg-gray-100 flex items-center justify-center min-h-screen">
         <div class="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
+            <!-- Error message if error exists -->
+            <% if (typeof error !== 'undefined' && error) { %>
+            <div
+                class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-md"
+            >
+                <strong class="font-bold">Error: </strong>
+                <span><%= error %></span>
+            </div>
+            <% } %>
+
             <!-- Form -->
             <form action="/auth/owner/signup" method="POST" class="space-y-6">
                 <h1 class="text-xl font-semibold text-gray-700">

@@ -8,6 +8,14 @@
             <h1 class="text-2xl font-semibold text-gray-700 mb-6">
                 Create a New Project
             </h1>
+            <% if (typeof error !== 'undefined' && error) { %>
+            <div
+                class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-md"
+            >
+                <strong class="font-semibold">Error:</strong>
+                <span><%= error %></span>
+            </div>
+            <% } %>
             <form action="/projects/" method="POST" class="space-y-6">
                 <!-- Project Name -->
                 <div>

@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 require("dotenv").config();
 
-// Protect routes - verify JWT token
+// DONE: updated
 exports.protect = asyncHandler(async (req, res, next) => {
     const token = req.cookies.access_token;
 
@@ -15,8 +15,8 @@ exports.protect = asyncHandler(async (req, res, next) => {
         // Verify token
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        // Add user info to request
-        req.owner = decoded;
+        // TODO: search by req.owner to remove all unused code
+        req.user = decoded;
         next();
     } catch (error) {
         res.status(401);
@@ -24,19 +24,20 @@ exports.protect = asyncHandler(async (req, res, next) => {
     }
 });
 
-// Role authorization middleware
+// DONE: updated
 exports.authorize = (...roles) => {
     return (req, res, next) => {
-        if (!roles.includes(req.owner.role)) {
+        if (!roles.includes(req.user.role)) {
             res.status(403);
             throw new Error(
-                `Role ${req.owner.role} is not authorized to access this route`
+                `Role ${req.user.role} is not authorized to access this route`
             );
         }
         next();
     };
 };
 
+// DONE: updated
 exports.isAuthenticated = asyncHandler(async (req, res, next) => {
     const token = req.cookies.access_token;
     if (!token) {

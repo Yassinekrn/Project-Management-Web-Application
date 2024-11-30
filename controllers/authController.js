@@ -1,9 +1,10 @@
 const asyncHandler = require("express-async-handler");
 const Owner = require("../models/ownerModel");
-const Member = require("../models/memberModel");
 const jwt = require("jsonwebtoken");
+const Worker = require("../models/workerModel");
 require("dotenv").config();
 
+// TODO: check middleware and fix it
 exports.owner_signup_get = asyncHandler(async (req, res) => {
     if (req.isAuthenticated) {
         res.redirect("/owners/dashboard");
@@ -12,6 +13,7 @@ exports.owner_signup_get = asyncHandler(async (req, res) => {
     }
 });
 
+// DONE: updated
 exports.owner_signup_post = asyncHandler(async (req, res) => {
     const { name, email, password, confirmPassword } = req.body;
 
@@ -23,13 +25,14 @@ exports.owner_signup_post = asyncHandler(async (req, res) => {
     // Check if user already exists
     const existingUser = await Owner.findOne({ email });
     if (existingUser) {
-        throw new Error("User already exists");
+        return res.render("signup", {
+            error: "User with the same email already exists",
+        });
     }
 
     let owner = new Owner({
         name,
         email,
-        role: "owner",
     });
 
     // Create new user
@@ -41,6 +44,7 @@ exports.owner_signup_post = asyncHandler(async (req, res) => {
     });
 });
 
+// TODO: check middleware and fix it
 exports.owner_login_get = asyncHandler(async (req, res) => {
     if (req.isAuthenticated) {
         res.redirect("/owners/dashboard");
@@ -49,19 +53,20 @@ exports.owner_login_get = asyncHandler(async (req, res) => {
     }
 });
 
+// DONE: updated
 exports.owner_login_post = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
     // Find user by email
     const owner = await Owner.findOne({ email });
     if (!owner) {
-        throw new Error("Invalid email or password");
+        res.render("login", { error: "Invalid email or password" });
     }
 
     // Verify password
     const isValidPassword = await owner.validatePassword(password);
     if (!isValidPassword) {
-        throw new Error("Invalid email or password");
+        res.render("login", { error: "Invalid email or password" });
     }
 
     // Create JWT token
@@ -70,7 +75,7 @@ exports.owner_login_post = asyncHandler(async (req, res) => {
             id: owner._id,
             email: owner.email,
             name: owner.name,
-            role: owner.role,
+            role: "owner",
             createdAt: owner.createdAt,
         },
         process.env.JWT_SECRET,
@@ -87,12 +92,14 @@ exports.owner_login_post = asyncHandler(async (req, res) => {
     res.redirect("/owners/dashboard");
 });
 
+// DONE: updated
 exports.owner_logout_post = asyncHandler(async (req, res) => {
     res.clearCookie("access_token");
     res.redirect("/auth/owner/login");
 });
 
-exports.member_signup_post = asyncHandler(async (req, res) => {
+// DONE: updated
+exports.worker_signup_post = asyncHandler(async (req, res) => {
     const { name, email, password, confirmPassword } = req.body;
 
     try {
@@ -102,20 +109,19 @@ exports.member_signup_post = asyncHandler(async (req, res) => {
         }
 
         // Check if user already exists
-        const existingUser = await Member.findOne({ email });
+        const existingUser = await Worker.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ error: "User already exists" });
         }
 
-        let member = new Member({
+        let worker = new Worker({
             name,
             email,
-            role: "member",
         });
 
         // Create new user
-        await member.setPassword(password);
-        await member.save();
+        await worker.setPassword(password);
+        await worker.save();
 
         res.status(201).json({ message: "Signup successful! Please login." });
     } catch (error) {
@@ -123,17 +129,18 @@ exports.member_signup_post = asyncHandler(async (req, res) => {
     }
 });
 
-exports.member_login_post = asyncHandler(async (req, res) => {
+// DONE: updated
+exports.worker_login_post = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
     // Find user by email
-    const member = await Member.findOne({ email });
-    if (!member) {
+    const worker = await Worker.findOne({ email });
+    if (!worker) {
         return res.status(400).json({ error: "Invalid email or password" });
     }
 
     // Verify password
-    const isValidPassword = await member.validatePassword(password);
+    const isValidPassword = await worker.validatePassword(password);
     if (!isValidPassword) {
         return res.status(400).json({ error: "Invalid email or password" });
     }
@@ -141,11 +148,11 @@ exports.member_login_post = asyncHandler(async (req, res) => {
     // Create JWT token
     const token = jwt.sign(
         {
-            id: member._id,
-            email: member.email,
-            name: member.name,
-            role: member.role,
-            createdAt: member.createdAt,
+            id: worker._id,
+            email: worker.email,
+            name: worker.name,
+            role: "worker",
+            createdAt: worker.createdAt,
         },
         process.env.JWT_SECRET,
         { expiresIn: "24h" }
@@ -161,7 +168,8 @@ exports.member_login_post = asyncHandler(async (req, res) => {
     res.status(200).json({ message: "Login successful", token });
 });
 
-exports.member_logout_post = asyncHandler(async (req, res) => {
+// DONE: updated
+exports.worker_logout_post = asyncHandler(async (req, res) => {
     res.clearCookie("access_token");
     res.status(200).json({ message: "Logout successful" });
 });

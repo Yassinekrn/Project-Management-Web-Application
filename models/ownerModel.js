@@ -1,46 +1,20 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+const { User } = require("./userModel");
 
-const ownerSchema = new mongoose.Schema({
-    name: {
+const ownerSchema = {
+    organizationName: {
         type: String,
-        required: true,
         trim: true,
     },
-    email: {
+    preferredContactMethod: {
         type: String,
-        required: true,
-        unique: true,
-        lowercase: true,
     },
-    passwordHash: {
-        type: String,
-        required: true,
-    },
-    role: {
-        type: String,
-        default: "owner",
-    },
-    projects: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Project",
-        },
-    ],
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    },
-});
-
-// Method to hash password
-ownerSchema.methods.setPassword = async function (password) {
-    this.passwordHash = await bcrypt.hash(password, 10);
 };
 
-// Password comparison method
-ownerSchema.methods.validatePassword = async function (password) {
-    return bcrypt.compare(password, this.passwordHash);
-};
+const Owner = User.discriminator(
+    "owner",
+    new mongoose.Schema(ownerSchema),
+    "owners"
+);
 
-module.exports = mongoose.model("Owner", ownerSchema);
+module.exports = Owner;
