@@ -28,15 +28,12 @@ router.get("/update/:taskId", protect, authorize("owner"), task_update_get);
 router.post("/update/:taskId", protect, authorize("owner"), task_update_post);
 
 // router.post("/:projectId", taskController.createTask); // Create Task (Owner only)
-router.post("/:taskId/assign", assignMemberToTask); // Assign Member to Task
-router.get("/:taskId", viewTaskById); // View Task by ID
-router.patch("/:taskId", updateTaskById); // Update Task by ID (Owner only)
 router.post("/delete/:taskId", deleteTaskById);
-router.put("/:taskId/status", protect, authorize("member"), updateTaskStatus); // Update Task Status (Owner and assigned member)
+router.put("/:taskId/status", protect, authorize("worker"), updateTaskStatus); // Update Task Status (Owner and assigned member)
 router.put(
     "/:taskId/progress",
     protect,
-    authorize("member"),
+    authorize("worker"),
     updateTaskProgress
 ); // Update Task Progress (Owner and assigned member)
 

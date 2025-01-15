@@ -197,3 +197,72 @@
 {"level":"error","message":"Not Found","timestamp":"2024-11-30T20:24:11.376Z"}
 {"level":"error","message":"404 - Not Found - /workers/add/674b6c958aa2fb1e934171ab - GET - ::1","timestamp":"2024-11-30T20:24:11.377Z"}
 {"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\task_form.ejs:5\n    3|     <%- include('./partials/_head.ejs', {title: 'Create a Task'}); %>\r\n    4|     <body class=\"bg-gray-100 min-h-screen\">\r\n >> 5|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    6| \r\n    7|         <!-- Content Wrapper -->\r\n    8|         <div class=\"max-w-4xl mx-auto px-4 py-8\">\r\n\nCannot read properties of undefined (reading 'name') - /tasks/create/674b6c958aa2fb1e934171ab - GET - ::1","timestamp":"2024-11-30T20:24:22.940Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T19:53:50.397Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-12-01T19:53:50.397Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T19:53:51.998Z"}
+{"level":"error","message":"404 - Not Found - /auth/member/signup - GET - ::1","timestamp":"2024-12-01T19:53:51.999Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T19:54:11.719Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-12-01T19:54:11.719Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T19:54:55.034Z"}
+{"level":"error","message":"404 - Not Found - /workers/add/674b6c958aa2fb1e934171ab - GET - ::1","timestamp":"2024-12-01T19:54:55.035Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T19:54:59.415Z"}
+{"level":"error","message":"404 - Not Found - /workers/add/674b6c958aa2fb1e934171ab - GET - ::1","timestamp":"2024-12-01T19:54:59.416Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T20:09:26.626Z"}
+{"level":"error","message":"404 - Not Found - /workers/add/674b6c958aa2fb1e934171ab - GET - ::1","timestamp":"2024-12-01T20:09:26.627Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'toString') - /projects/674b6c958aa2fb1e934171ab/update - GET - ::1","timestamp":"2024-12-01T20:12:19.826Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'toString') - /projects/674b6c958aa2fb1e934171ab/update - GET - ::1","timestamp":"2024-12-01T20:12:41.081Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'toString') - /projects/674b6c958aa2fb1e934171ab/update - GET - ::1","timestamp":"2024-12-01T20:13:47.217Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T20:51:08.377Z"}
+{"level":"error","message":"404 - Not Found - /workers/create/674cc566ce7a7def03ebe364 - GET - ::1","timestamp":"2024-12-01T20:51:08.378Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T20:57:01.956Z"}
+{"level":"error","message":"404 - Not Found - /auth/member/login - POST - ::1","timestamp":"2024-12-01T20:57:01.957Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs', {title: project.name + ' Details'});\r\n    5|         %>\r\n    6|     </head>\r\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n\nproject is not defined - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-01T20:57:25.869Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs', {title: project.name + ' Details'});\r\n    5|         %>\r\n    6|     </head>\r\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n\nproject is not defined - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-01T21:02:36.487Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs', {title: project.name + ' Details'});\r\n    5|         %>\r\n    6|     </head>\r\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n\nproject is not defined - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-01T21:04:30.411Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'push') - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-01T21:05:39.237Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'push') - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-01T21:06:57.360Z"}
+{"level":"error","message":"500 - project is not defined - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-01T21:08:39.088Z"}
+{"level":"error","message":"500 - project is not defined - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-01T21:09:07.414Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-01T21:15:38.636Z"}
+{"level":"error","message":"404 - Not Found - /workers/remove/674ccd91b7f56e764bd7fdd7/674cc566ce7a7def03ebe364 - POST - ::1","timestamp":"2024-12-01T21:15:38.637Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\task_form.ejs:5\n    3|     <%- include('./partials/_head.ejs', {title: 'Create a Task'}); %>\r\n    4|     <body class=\"bg-gray-100 min-h-screen\">\r\n >> 5|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    6| \r\n    7|         <!-- Content Wrapper -->\r\n    8|         <div class=\"max-w-4xl mx-auto px-4 py-8\">\r\n\nCannot read properties of undefined (reading 'name') - /tasks/create/674cc566ce7a7def03ebe364 - GET - ::1","timestamp":"2024-12-01T21:17:01.936Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\task_form.ejs:5\n    3|     <%- include('./partials/_head.ejs', {title: 'Create a Task'}); %>\r\n    4|     <body class=\"bg-gray-100 min-h-screen\">\r\n >> 5|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    6| \r\n    7|         <!-- Content Wrapper -->\r\n    8|         <div class=\"max-w-4xl mx-auto px-4 py-8\">\r\n\nCannot read properties of undefined (reading 'name') - /tasks/create/674cc566ce7a7def03ebe364 - GET - ::1","timestamp":"2024-12-01T21:21:00.026Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\task_form.ejs:5\n    3|     <%- include('./partials/_head.ejs', {title: 'Create a Task'}); %>\r\n    4|     <body class=\"bg-gray-100 min-h-screen\">\r\n >> 5|         <%- include('./partials/_navbar.ejs', {name: owner.name}); %>\r\n    6| \r\n    7|         <!-- Content Wrapper -->\r\n    8|         <div class=\"max-w-4xl mx-auto px-4 py-8\">\r\n\nCannot read properties of undefined (reading 'name') - /tasks/create/674cc566ce7a7def03ebe364 - GET - ::1","timestamp":"2024-12-01T21:22:06.331Z"}
+{"level":"error","message":"500 - Member is not defined - /tasks/create/674cc566ce7a7def03ebe364 - POST - ::1","timestamp":"2024-12-01T21:29:57.300Z"}
+{"level":"error","message":"500 - Member is not defined - /tasks/create/674cc566ce7a7def03ebe364 - POST - ::1","timestamp":"2024-12-01T21:35:22.598Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'id') - /tasks/create/674cc566ce7a7def03ebe364 - POST - ::1","timestamp":"2024-12-01T21:54:56.375Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-02T18:39:48.745Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-12-02T18:39:48.746Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs', {title: project.name + ' Details'});\r\n    5|         %>\r\n    6|     </head>\r\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n\nproject is not defined - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T19:44:59.963Z"}
+{"level":"error","message":"500 - Not authorized, no token - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T19:56:09.460Z"}
+{"level":"error","message":"500 - Not authorized, no token - /projects/674cc566ce7a7def03ebe364 - GET - ::1","timestamp":"2024-12-02T19:56:18.192Z"}
+{"level":"error","message":"500 - Not authorized, no token - /owners/dashboard - GET - ::1","timestamp":"2024-12-02T19:56:23.078Z"}
+{"level":"error","message":"500 - Not authorized, no token - /projects/ - GET - ::1","timestamp":"2024-12-02T19:56:25.430Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs', {title: project.name + ' Details'});\r\n    5|         %>\r\n    6|     </head>\r\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n\nproject is not defined - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T19:56:50.716Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs', {title: project.name + ' Details'});\r\n    5|         %>\r\n    6|     </head>\r\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n\nCannot read properties of null (reading 'name') - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T19:59:25.530Z"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'projects') - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T20:00:12.240Z"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'projects') - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T20:00:35.203Z"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'projects') - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T20:00:56.472Z"}
+{"level":"error","message":"500 - C:\\Users\\noa\\Downloads\\3rd_year_dsi\\NodeJS\\Project\\source_code\\views\\project_details.ejs:4\n    2| <html lang=\"en\">\r\n    3|     <head>\r\n >> 4|         <%- include('./partials/_head.ejs', {title: project.name + ' Details'});\r\n    5|         %>\r\n    6|     </head>\r\n    7|     <body class=\"bg-gray-100 min-h-screen\">\r\n\nproject is not defined - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T20:03:17.588Z"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'projects') - /projects/674cc566ce7a7def03ebe364/add-worker-by-email - POST - ::1","timestamp":"2024-12-02T20:04:08.610Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-02T20:07:01.539Z"}
+{"level":"error","message":"404 - Not Found - /dashboard - GET - ::1","timestamp":"2024-12-02T20:07:01.540Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-02T20:17:06.095Z"}
+{"level":"error","message":"404 - Not Found - /auth/member/signup - GET - ::1","timestamp":"2024-12-02T20:17:06.097Z"}
+{"level":"error","message":"500 - Cannot set headers after they are sent to the client - /auth/owner/login - POST - ::1","timestamp":"2024-12-02T20:17:32.184Z"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'tasks') - /tasks/delete/674e162b919b82bb69ccfa0c - POST - ::1","timestamp":"2024-12-02T20:19:30.218Z"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'tasks') - /tasks/delete/674e162b919b82bb69ccfa0c - POST - ::1","timestamp":"2024-12-02T20:19:49.406Z"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'validatePassword') - /auth/owner/login - POST - ::1","timestamp":"2024-12-02T20:21:10.704Z"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'validatePassword') - /auth/owner/login - POST - ::1","timestamp":"2024-12-02T20:21:10.718Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-03T11:20:46.851Z"}
+{"level":"error","message":"404 - Not Found - /favicon.ico - GET - ::1","timestamp":"2024-12-03T11:20:46.855Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-03T11:24:49.278Z"}
+{"level":"error","message":"404 - Not Found - /members/me - GET - ::1","timestamp":"2024-12-03T11:24:49.284Z"}
+{"level":"error","message":"500 - utils.populate: invalid path. Expected string. Got typeof `object` - /projects/674cc566ce7a7def03ebe364/remove-worker/674eea4c49a7f1045769f3c7 - POST - ::1","timestamp":"2024-12-03T11:37:44.142Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'toString') - /projects/674cc566ce7a7def03ebe364/remove-worker/674eea4c49a7f1045769f3c7 - POST - ::1","timestamp":"2024-12-03T11:38:46.859Z"}
+{"level":"error","message":"500 - Role worker is not authorized to access this route - /tasks/674eef7ec9c86dad704b6acd/status - PUT - ::1","timestamp":"2024-12-03T11:47:20.840Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-03T12:05:16.954Z"}
+{"level":"error","message":"404 - Not Found - /auth/member/logout - POST - ::1","timestamp":"2024-12-03T12:05:16.955Z"}
+{"level":"error","message":"Not Found","timestamp":"2024-12-03T12:05:24.948Z"}
+{"level":"error","message":"404 - Not Found - /auth/workers/logout - POST - ::1","timestamp":"2024-12-03T12:05:24.949Z"}
+{"level":"error","message":"500 - owner.remove is not a function - /owners/me/delete - POST - ::1","timestamp":"2024-12-03T13:07:00.353Z"}

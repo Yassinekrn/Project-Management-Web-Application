@@ -11,12 +11,10 @@ const workerSchema = {
     expertise: [
         {
             type: String,
-            required: true,
         },
     ],
     portfolio: {
         type: String,
-        required: true,
     },
 };
 

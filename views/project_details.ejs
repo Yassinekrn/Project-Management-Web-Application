@@ -10,7 +10,50 @@
         <!-- Content Wrapper -->
         <div class="max-w-7xl mx-auto px-4 py-8 space-y-8">
             <!-- Project Overview -->
-            <div class="bg-white shadow-md rounded-lg p-6">
+            <% if (typeof error !== 'undefined' && error) { %>
+            <div
+                class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                role="alert"
+            >
+                <strong class="font-bold">Error:</strong>
+                <span class="block sm:inline"><%= error %></span>
+                <div class="mt-4">
+                    <a
+                        href="/owners/dashboard"
+                        class="text-blue-600 hover:underline"
+                        >Go back to dashboard</a
+                    >
+                    or
+                    <span>reload the page</span>
+                    .
+                </div>
+            </div>
+            <% } else { %>
+            <div class="bg-white shadow-md rounded-lg p-6 relative">
+                <!-- Action Buttons -->
+                <div class="absolute top-4 right-4 flex items-center space-x-2">
+                    <!-- Edit Button -->
+                    <a
+                        href="/projects/<%= project._id %>/update"
+                        class="bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-600 focus:outline-none transition"
+                    >
+                        Edit
+                    </a>
+
+                    <!-- Delete Button -->
+                    <form
+                        action="/projects/<%= project._id %>/delete"
+                        method="post"
+                    >
+                        <button
+                            type="submit"
+                            class="bg-red-500 text-white text-sm font-semibold py-2 px-4 rounded-md shadow-md hover:bg-red-600 focus:outline-none transition"
+                        >
+                            Delete
+                        </button>
+                    </form>
+                </div>
+
                 <!-- Project Icon + Name -->
                 <h1
                     class="text-2xl font-bold text-gray-800 mb-4 flex items-center space-x-2"
@@ -49,8 +92,8 @@
                         >
                             Created: <%= new
                             Date(project.createdAt).toLocaleDateString('en-US',
-                            { year: 'numeric', month: 'short', day: 'numeric',
-                            }) %>
+                            { year: 'numeric', month: 'short', day: 'numeric' })
+                            %>
                         </span>
                     </p>
                     <p>
@@ -60,8 +103,8 @@
                         >
                             Updated: <%= new
                             Date(project.updatedAt).toLocaleDateString('en-US',
-                            { year: 'numeric', month: 'short', day: 'numeric',
-                            }) %>
+                            { year: 'numeric', month: 'short', day: 'numeric' })
+                            %>
                         </span>
                         <% } %>
                     </p>
@@ -70,10 +113,9 @@
 
             <!-- Project Workers Section -->
             <div class="bg-white shadow-md rounded-lg p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <div
-                        class="flex flex-row justify-between items-center gap-1"
-                    >
+                <div class="flex justify-between items-center mb-6">
+                    <!-- Section Title -->
+                    <div class="flex items-center gap-1">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -102,26 +144,48 @@
                             Project Workers
                         </h2>
                     </div>
-                    <a
-                        href="/workers/add/<%= project.id %>"
-                        class="flex items-center bg-black text-white px-4 py-2 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                </div>
+
+                <!-- Add Worker Form -->
+                <form
+                    action="/projects/<%= project.id %>/add-worker-by-email"
+                    method="POST"
+                    class="mb-6 flex items-center space-x-3"
+                >
+                    <!-- Email Input -->
+                    <input
+                        type="email"
+                        name="workerEmail"
+                        placeholder="Enter worker's email and press the + button to add him to the project"
+                        required
+                        class="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-black"
+                    />
+                    <!-- Add Worker Button -->
+                    <button
+                        type="submit"
+                        class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 mr-2"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-plus"
                         >
-                            <path
-                                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H5a1 1 0 110-2h3V6a1 1 0 011-1z"
-                            />
+                            <path d="M5 12h14" />
+                            <path d="M12 5v14" />
                         </svg>
-                        Add Worker
-                    </a>
-                </div>
-                <% if (project.workers && project.workers.length > 0) { %>
+                    </button>
+                </form>
+
+                <% if (workers && workers.length > 0) { %>
                 <ul class="space-y-4">
-                    <% project.workers.forEach(worker => { %>
+                    <% workers.forEach(worker => { %>
                     <li
                         class="border rounded-md p-4 flex items-start justify-between"
                     >
@@ -154,18 +218,17 @@
                             </div>
                         </div>
 
-                        <!-- Right Section: Buttons -->
+                        <!-- Right Section: Remove Worker Button -->
                         <div class="flex space-x-2">
-                            <!-- Delete Button -->
                             <form
-                                action="/workers/remove/<%= worker._id %>/<%= project.id %>"
-                                method="post"
+                                action="/projects/<%= project.id %>/remove-worker/<%= worker._id %>"
+                                method="POST"
                             >
                                 <button
-                                    class="deleteWorkerBtn bg-red-500 text-white px-3 py-1 rounded-md text-sm hover:bg-red-600"
-                                    data-worker-id="<%= worker._id %>"
+                                    class="bg-red-500 text-white px-3 py-1 rounded-md text-sm hover:bg-red-600"
+                                    onclick="return confirm('Are you sure you want to remove this worker?')"
                                 >
-                                    Remove Worker
+                                    Remove
                                 </button>
                             </form>
                         </div>
@@ -174,10 +237,7 @@
                 </ul>
                 <% } else { %>
                 <p class="text-gray-600 mb-4">No workers added yet.</p>
-                <a
-                    href="/workers/create/<%= project.id %>"
-                    class="text-blue-600 hover:underline text-sm"
-                >
+                <a href="#" class="text-blue-600 hover:underline text-sm">
                     Add your first worker now.
                 </a>
                 <% } %>
@@ -276,12 +336,7 @@
                                 task.assignedTo != null ? task.assignedTo.name:
                                 "no One" %>
                             </p>
-                            <p class="text-xs text-gray-500">
-                                Created: <%= new
-                                Date(task.createdAt).toLocaleDateString() %> |
-                                Updated: <%= new
-                                Date(task.updatedAt).toLocaleDateString() %>
-                            </p>
+
                             <p class="mt-2">
                                 <span
                                     class="bg-blue-100 text-blue-700 text-xs font-semibold py-1 px-2 rounded-md"
@@ -328,6 +383,7 @@
                 </a>
                 <% } %>
             </div>
+            <% } %>
         </div>
     </body>
 </html>

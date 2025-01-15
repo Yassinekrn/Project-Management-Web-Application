@@ -11,18 +11,18 @@ exports.owner_dashboard_get = asyncHandler(async (req, res) => {
         .select("projects")
         .populate("projects");
     req.user.projects = owner.projects;
-    res.render("dashboard", { owner: req.user });
+    return res.render("dashboard", { owner: req.user });
 });
 
 // DONE: updated
 exports.owner_details_get = asyncHandler(async (req, res) => {
     const owner = await Owner.findById(req.user.id);
     if (!owner) {
-        res.status(404).render("owner_details", {
+        return res.status(404).render("owner_details", {
             error: "Owner not found. Please make sure you are logged in with the correct account.",
         });
     } else {
-        res.render("owner_details", { owner: req.user });
+        return res.render("owner_details", { owner: req.user });
     }
 });
 
@@ -30,11 +30,11 @@ exports.owner_details_get = asyncHandler(async (req, res) => {
 exports.owner_update_get = asyncHandler(async (req, res) => {
     const owner = await Owner.findById(req.user.id);
     if (!owner) {
-        res.render("owner_update", {
+        return res.render("owner_update", {
             error: "Owner not found. Please make sure you are logged in with the correct account.",
         });
     } else {
-        res.render("owner_update", { owner: req.user });
+        return res.render("owner_update", { owner: req.user });
     }
 });
 
@@ -71,7 +71,7 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
     );
 
     if (!updatedOwner) {
-        res.render("owner_update", {
+        return res.render("owner_update", {
             owner: req.user,
             error: "Owner not found. Please make sure you are logged in with the correct account.",
         });
@@ -95,7 +95,7 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
             secure: process.env.NODE_ENV === "production",
             maxAge: 24 * 60 * 60 * 1000, // 24 hours
         });
-        res.render("owner_details", { owner: updatedOwner });
+        return res.render("owner_details", { owner: updatedOwner });
     }
 });
 
@@ -103,13 +103,13 @@ exports.owner_update_post = asyncHandler(async (req, res) => {
 exports.owner_delete_post = asyncHandler(async (req, res) => {
     const owner = await Owner.findById(req.user.id);
     if (!owner) {
-        res.render("owner_details", {
+        return res.render("owner_details", {
             owner: req.user,
             error: "Owner not found. Please make sure you are logged in with the correct account.",
         });
     } else {
         await owner.remove();
         res.clearCookie("access_token");
-        res.redirect("/auth/owner/login");
+        return res.redirect("/auth/owner/login");
     }
 });

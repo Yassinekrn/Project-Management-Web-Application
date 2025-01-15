@@ -36,7 +36,7 @@ router.post(
 );
 
 router.post(
-    "/:projectId/add-worker/:workerId",
+    "/:projectId/add-worker-by-email",
     protect,
     authorize("owner"),
     add_worker_post

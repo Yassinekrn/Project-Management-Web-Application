@@ -15,7 +15,6 @@ exports.protect = asyncHandler(async (req, res, next) => {
         // Verify token
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        // TODO: search by req.owner to remove all unused code
         req.user = decoded;
         next();
     } catch (error) {

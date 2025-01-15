@@ -7,32 +7,35 @@ exports.worker_info_get = asyncHandler(async (req, res) => {
         .populate("projects tasks")
         .select("-passwordHash");
     if (!worker) {
-        res.status(404).json({ message: "worker not found" });
+        return res.status(404).json({ message: "worker not found" });
     }
-    res.json(worker);
+    return res.json(worker);
 });
 
 // DONE: updated
 exports.worker_info_update = asyncHandler(async (req, res) => {
     let worker = await Worker.findById(req.user.id);
     if (!worker) {
-        res.status(404).json({ message: "worker not found" });
+        return res.status(404).json({ message: "worker not found" });
     }
     worker.name = req.body.name || worker.name;
     worker.email = req.body.email || worker.email;
+    worker.portfolio = req.body.portfolio || worker.portfolio;
+    worker.expertise = req.body.expertise || worker.expertise;
+    // pass this example as expertise: ["expertise1", "expertise2"]
 
     await worker.save();
-    res.json(worker);
+    return res.json(worker);
 });
 
 // DONE: updated
 exports.worker_account_delete = asyncHandler(async (req, res) => {
     let worker = await Worker.findById(req.owner.id);
     if (!worker) {
-        res.status(404).json({ message: "worker not found" });
+        return res.status(404).json({ message: "worker not found" });
     }
     await worker.remove();
     // delete the cookie
     res.clearCookie("token");
-    res.json({ message: "worker deleted" });
+    return res.json({ message: "worker deleted" });
 });

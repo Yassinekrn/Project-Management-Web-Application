@@ -3,96 +3,108 @@ const asyncHandler = require("express-async-handler");
 const Project = require("../models/projectModel");
 const Worker = require("../models/workerModel");
 
+// DONE: updated
 exports.task_update_get = asyncHandler(async (req, res) => {
     const task = await Task.findById(req.params.taskId).populate("assignedTo");
-    res.render("task_update", {
+    const workers = await Worker.find({ projects: task.project }).select(
+        "name email"
+    );
+    return res.render("task_update", {
         title: "Update Task",
-        owner: req.owner,
+        owner: req.user,
         task,
+        workers,
     });
 });
 
+// DONE: updated
 exports.task_update_post = asyncHandler(async (req, res) => {
     const task = await Task.findById(req.params.taskId);
     if (!task) {
-        return res.status(404).send("Task not found");
+        return res.render("task_update", {
+            error: "Task not found",
+        });
     }
 
     const assignedTo = req.body.assignedTo
-        ? await Member.findOne({ email: req.body.assignedTo })
+        ? await Worker.findOne({ email: req.body.assignedTo })
         : null;
     if (req.body.assignedTo && !assignedTo) {
-        return res.status(404).send("No member found with the provided email");
+        return res.render("task_update", {
+            error: "No member found with the provided email",
+        });
     }
-
-    if (assignedTo) {
-        let project = await Project.findById(task.project).populate({
-            path: "teams",
-            populate: {
-                path: "members",
-            },
+    if (req.body.assignedTo && !assignedTo.projects.includes(task.project)) {
+        return res.render("task_update", {
+            error: "Member not found in the project",
         });
-        let memberFound = false;
-        project.teams.forEach((team) => {
-            team.members.forEach((member) => {
-                if (member.email === req.body.assignedTo) {
-                    memberFound = true;
-                }
-            });
-        });
-        if (!memberFound) {
-            return res.status(404).send("Member not found in the project");
-        }
     }
 
     task.title = req.body.title || task.title;
     task.description = req.body.description || task.description;
     task.status = req.body.status || task.status;
     task.progress = req.body.progress || task.progress;
+    if (
+        task.assignedTo &&
+        assignedTo &&
+        task.assignedTo.toString() !== assignedTo._id.toString()
+    ) {
+        const oldWorker = await Worker.findById(task.assignedTo);
+        if (oldWorker) {
+            oldWorker.tasks = oldWorker.tasks.filter(
+                (taskId) => taskId.toString() !== task._id.toString()
+            );
+            await oldWorker.save();
+        }
+        assignedTo.tasks.push(task._id);
+        await assignedTo.save();
+    }
     task.assignedTo = assignedTo ? assignedTo._id : null;
 
     await task.save();
 
-    res.status(200).redirect("/projects/" + task.project);
+    return res.status(200).redirect("/projects/" + task.project);
 });
 
+// DONE: updated
 exports.task_create_get = asyncHandler(async (req, res) => {
-    res.render("task_form", {
+    let workers = await Worker.find({ projects: req.params.projectId }).select(
+        "name email"
+    );
+    return res.render("task_form", {
         title: "Create Task",
-        owner: req.owner,
+        owner: req.user,
         projectId: req.params.projectId,
+        workers,
     });
 });
 
+// DONE: updated
 exports.task_create_post = asyncHandler(async (req, res) => {
     // find assignedTo id by email
-    const assignedTo = await Member.findOne({ email: req.body.assignedTo });
+    const assignedTo = await Worker.findOne({ email: req.body.assignedTo });
     if (!assignedTo) {
-        return res.status(404).send("No member found with the provided email");
-    }
-    // check if the member is in one of the teams of the project
-    let project = await Project.findById(req.params.projectId).populate({
-        path: "teams",
-        populate: {
-            path: "members",
-        },
-    });
-    let memberFound = false;
-    project.teams.forEach((team) => {
-        team.members.forEach((member) => {
-            if (member.email === req.body.assignedTo) {
-                memberFound = true;
-            }
+        return res.render("task_form", {
+            error: "No member found with the provided email",
         });
-    });
-    if (!memberFound) {
-        return res.status(404).send("Member not found in the project");
     }
+    const project = await Project.findById(req.params.projectId);
+    if (!project) {
+        return res.render("task_form", {
+            error: "Project not found",
+        });
+    }
+    if (!assignedTo.projects.includes(req.params.projectId)) {
+        return res.render("task_form", {
+            error: "Member not found in the project",
+        });
+    }
+
     const task = new Task({
         title: req.body.title,
         description: req.body.description,
         status: req.body.status,
-        createdBy: req.owner.id,
+        createdBy: req.user.id,
         progress: req.body.progress,
         assignedTo: assignedTo._id,
         project: req.params.projectId,
@@ -100,28 +112,16 @@ exports.task_create_post = asyncHandler(async (req, res) => {
 
     await task.save();
 
-    // const project = await Project.findById(req.params.projectId);
     project.tasks.push(task._id);
     await project.save();
 
     assignedTo.tasks.push(task._id);
     await assignedTo.save();
 
-    res.status(201).redirect("/projects/" + req.params.projectId);
+    return res.status(201).redirect("/projects/" + req.params.projectId);
 });
 
-exports.assignMemberToTask = asyncHandler(async (req, res) => {
-    res.json({ message: "assignMemberToTask" });
-});
-
-exports.viewTaskById = asyncHandler(async (req, res) => {
-    res.json({ message: "viewTaskById" });
-});
-
-exports.updateTaskById = asyncHandler(async (req, res) => {
-    res.json({ message: "updateTaskById" });
-});
-
+// DONE: updated
 exports.deleteTaskById = asyncHandler(async (req, res) => {
     let taskId = req.params.taskId;
     let taskToDelete = await Task.findById(taskId);
@@ -129,8 +129,17 @@ exports.deleteTaskById = asyncHandler(async (req, res) => {
         return res.status(404).send("Task not found");
     }
     let projectId = taskToDelete.project;
+
+    // remove task from project
+    let project = await Project.findById(projectId);
+    project.tasks = project.tasks.filter((task) => task.toString() !== taskId);
+    await project.save();
+    // remove task from worker
+    let worker = await Worker.findById(taskToDelete.assignedTo);
+    worker.tasks = worker.tasks.filter((task) => task.toString() !== taskId);
+    await worker.save();
     await Task.findByIdAndDelete(taskId);
-    res.redirect("/projects/" + projectId);
+    return res.redirect("/projects/" + projectId);
 });
 
 exports.updateTaskStatus = asyncHandler(async (req, res) => {
@@ -139,7 +148,7 @@ exports.updateTaskStatus = asyncHandler(async (req, res) => {
     if (!task) {
         return res.status(404).send("Task not found");
     }
-    if (task.assignedTo.toString() !== req.owner.id) {
+    if (task.assignedTo.toString() !== req.user.id) {
         return res.status(401).send("Unauthorized");
     }
     if (
@@ -152,7 +161,7 @@ exports.updateTaskStatus = asyncHandler(async (req, res) => {
 
     task.status = req.body.status || task.status;
     await task.save();
-    res.status(200).send("Task status updated");
+    return res.status(200).send("Task status updated");
 });
 
 exports.updateTaskProgress = asyncHandler(async (req, res) => {
@@ -161,7 +170,7 @@ exports.updateTaskProgress = asyncHandler(async (req, res) => {
     if (!task) {
         return res.status(404).send("Task not found");
     }
-    if (task.assignedTo.toString() !== req.owner.id) {
+    if (task.assignedTo.toString() !== req.user.id) {
         return res.status(401).send("Unauthorized");
     }
     if (req.body.progress < 0 || req.body.progress > 100) {
@@ -169,5 +178,5 @@ exports.updateTaskProgress = asyncHandler(async (req, res) => {
     }
     task.progress = req.body.progress || task.progress;
     await task.save();
-    res.status(200).send("Task progress updated");
+    return res.status(200).send("Task progress updated");
 });

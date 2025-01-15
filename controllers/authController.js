@@ -2,14 +2,15 @@ const asyncHandler = require("express-async-handler");
 const Owner = require("../models/ownerModel");
 const jwt = require("jsonwebtoken");
 const Worker = require("../models/workerModel");
+const validator = require("validator");
 require("dotenv").config();
 
 // TODO: check middleware and fix it
 exports.owner_signup_get = asyncHandler(async (req, res) => {
     if (req.isAuthenticated) {
-        res.redirect("/owners/dashboard");
+        return res.redirect("/owners/dashboard");
     } else {
-        res.render("signup");
+        return res.render("signup");
     }
 });
 
@@ -19,7 +20,7 @@ exports.owner_signup_post = asyncHandler(async (req, res) => {
 
     // Check if passwords match
     if (password !== confirmPassword) {
-        throw new Error("Passwords do not match");
+        return res.render("signup", { error: "Passwords do not match" });
     }
 
     // Check if user already exists
@@ -47,9 +48,9 @@ exports.owner_signup_post = asyncHandler(async (req, res) => {
 // TODO: check middleware and fix it
 exports.owner_login_get = asyncHandler(async (req, res) => {
     if (req.isAuthenticated) {
-        res.redirect("/owners/dashboard");
+        return res.redirect("/owners/dashboard");
     } else {
-        res.render("login");
+        return res.render("login");
     }
 });
 
@@ -60,13 +61,13 @@ exports.owner_login_post = asyncHandler(async (req, res) => {
     // Find user by email
     const owner = await Owner.findOne({ email });
     if (!owner) {
-        res.render("login", { error: "Invalid email or password" });
+        return res.render("login", { error: "Invalid email or password" });
     }
 
     // Verify password
     const isValidPassword = await owner.validatePassword(password);
     if (!isValidPassword) {
-        res.render("login", { error: "Invalid email or password" });
+        return res.render("login", { error: "Invalid email or password" });
     }
 
     // Create JWT token
@@ -89,18 +90,23 @@ exports.owner_login_post = asyncHandler(async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000, // 24 hours
     });
 
-    res.redirect("/owners/dashboard");
+    return res.redirect("/owners/dashboard");
 });
 
 // DONE: updated
 exports.owner_logout_post = asyncHandler(async (req, res) => {
     res.clearCookie("access_token");
-    res.redirect("/auth/owner/login");
+    return res.redirect("/auth/owner/login");
 });
 
 // DONE: updated
 exports.worker_signup_post = asyncHandler(async (req, res) => {
     const { name, email, password, confirmPassword } = req.body;
+
+    // Email validation using validator
+    if (!validator.isEmail(email)) {
+        return res.status(400).json({ error: "Invalid email format" });
+    }
 
     try {
         // Check if passwords match
@@ -132,6 +138,11 @@ exports.worker_signup_post = asyncHandler(async (req, res) => {
 // DONE: updated
 exports.worker_login_post = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
+
+    // Email validation using validator
+    if (!validator.isEmail(email)) {
+        return res.status(400).json({ error: "Invalid email format" });
+    }
 
     // Find user by email
     const worker = await Worker.findOne({ email });
